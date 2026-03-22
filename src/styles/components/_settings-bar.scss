@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+// ─────────────────────────────────────────────
+// Settings bottom bar (Game theme / Player / Board size / Start)
+// ─────────────────────────────────────────────
+.settings {
+
+  &__bottom-bar {
+    display: flex;
+    align-items: center;
+    margin-top: $spacing-md;
+    background: $color-white;
+    border-radius: $radius-lg;
+    border: 1.5px solid $color-border;
+    overflow: hidden;
+  }
+
+  &__bar-item {
+    flex: 1;
+    padding: 12px $spacing-md;
+    font-size: 0.82rem;
+    color: $color-text-muted;
+    transition: color $transition-normal;
+    white-space: nowrap;
+
+    &.is-active {
+      color: $color-text;
+      font-weight: 500;
+    }
+  }
+
+  &__bar-sep {
+    color: $color-border;
+    font-size: 1rem;
+    padding: 0 2px;
+    flex-shrink: 0;
+  }
+
+  &__start-btn {
+    @include button-reset;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    background: $color-border;
+    border-radius: 0 $radius-md $radius-md 0;
+    cursor: not-allowed;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    transition: background $transition-normal, color $transition-normal;
+    white-space: nowrap;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.is-ready {
+      background: $color-accent;
+      color: $color-text;
+      cursor: pointer;
+
+      &:hover  { background: darken($color-accent, 8%); }
+      &:active { transform: scale(0.98); }
+    }
+  }
+}

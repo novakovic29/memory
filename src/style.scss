@@ -1,0 +1,14 @@
+// ─────────────────────────────────────────────
+// style.scss — Haupt-Einstiegspunkt
+//
+// Reihenfolge ist wichtig:
+// 1. Abstracts  (Variablen, Mixins — kein CSS output)
+// 2. Base       (Reset, Typografie)
+// 3. Layouts    (Seitenstruktur, Grids)
+// 4. Components (UI-Blöcke)
+// ─────────────────────────────────────────────
+
+@use 'styles/abstracts' as *;
+@use 'styles/base';
+@use 'styles/layouts';
+@use 'styles/components';

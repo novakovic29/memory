@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory</title>
+  <link rel="preload" href="/assets/stadia_controller_background.svg" as="image">
+</head>
+ 
+<body>
+ 
+  <!-- ── 1. Hero ── -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <p class="hero__subtitle">It's play time.</p>
+      <h1 class="hero__title">Ready to play?</h1>
+ 
+      <button class="hero__btn" id="play-btn">
+        <img src="/assets/stadia_controller.svg" alt="controller">
+        <span>Play</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+ 
+    <img src="/assets/stadia_controller_background.svg" alt="" class="hero__bg-icon" aria-hidden="true">
+  </section>
+ 
+  <!-- ── 2. Settings ── -->
+  <section class="settings" id="settings" style="display: none;">
+    <div class="settings__header">
+      <h1 class="settings__title">Settings</h1>
+      <div class="settings__underline"></div>
+    </div>
+ 
+    <div class="settings__layout">
+ 
+      <!-- LEFT: Options -->
+      <div class="settings__options">
+ 
+        <section class="settings__section">
+          <h2 class="settings__section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+            </svg>
+            Game themes
+          </h2>
+          <div class="settings__radio-group">
+            <label class="settings__radio-option">
+              <input type="radio" name="theme" value="code" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">Code vibes theme</span>
+            </label>
+            <label class="settings__radio-option">
+              <input type="radio" name="theme" value="gaming" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">Gaming theme</span>
+            </label>
+          </div>
+        </section>
+ 
+        <section class="settings__section">
+          <h2 class="settings__section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            Choose player
+          </h2>
+          <div class="settings__radio-group">
+            <label class="settings__radio-option">
+              <input type="radio" name="player" value="blue" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">Blue</span>
+            </label>
+            <label class="settings__radio-option">
+              <input type="radio" name="player" value="orange" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">Orange</span>
+            </label>
+          </div>
+        </section>
+ 
+        <section class="settings__section">
+          <h2 class="settings__section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+            </svg>
+            Board size
+          </h2>
+          <div class="settings__radio-group">
+            <label class="settings__radio-option">
+              <input type="radio" name="size" value="16" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">16 cards</span>
+            </label>
+            <label class="settings__radio-option">
+              <input type="radio" name="size" value="24" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">24 cards</span>
+            </label>
+            <label class="settings__radio-option">
+              <input type="radio" name="size" value="36" />
+              <span class="settings__radio-circle"></span>
+              <span class="settings__radio-label">36 cards</span>
+            </label>
+          </div>
+        </section>
+ 
+      </div>
+ 
+      <!-- RIGHT: Preview -->
+      <div class="settings__preview-wrap">
+        <div class="settings__preview-box">
+          <div class="settings__preview-bar">
+            <div class="settings__preview-dots">
+              <span class="settings__dot settings__dot--blue" id="dot-blue"></span>
+              <span class="settings__dot settings__dot--orange" id="dot-orange"></span>
+            </div>
+            <span class="settings__preview-info">
+              Current player:
+              <span class="settings__player-indicator" id="player-indicator"></span>
+            </span>
+            <button class="settings__exit-btn" type="button">⬡ Exit game</button>
+          </div>
+ 
+          <div class="settings__preview-content" id="preview-content">
+            <div class="settings__cards-demo">
+              <div class="settings__card-demo settings__card-demo--front" id="card-front">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <div class="settings__card-demo settings__card-demo--back" id="card-back">
+                <svg viewBox="0 0 24 24" fill="#c0392b">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Bottom bar -->
+        <div class="settings__bottom-bar">
+          <span class="settings__bar-item" id="bar-theme">Game theme</span>
+          <span class="settings__bar-sep">/</span>
+          <span class="settings__bar-item" id="bar-player">Player</span>
+          <span class="settings__bar-sep">/</span>
+          <span class="settings__bar-item" id="bar-size">Board size</span>
+          <button class="settings__start-btn" id="start-btn" type="button" disabled>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+            Start
+          </button>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <!-- ── 3. Game menu (Platzhalter) ── -->
+  <section class="game-menu" id="game-menu" style="display: none;">
+    <div class="game-menu__content">
+      <h1>Spielmenü</h1>
+      <p>Wähle eine Option:</p>
+      <button id="start-game">Spiel starten</button>
+    </div>
+  </section>
+ 
+  <script type="module" src="./src/main.ts"></script>
+</body>
+ 
+</html>

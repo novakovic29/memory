@@ -1,0 +1,15 @@
+// ─────────────────────────────────────────────
+// Main Stylesheet - SCSS Architecture
+// ─────────────────────────────────────────────
+
+// 1. Abstracts - Variables, Mixins, Functions
+@use './abstracts' as *;
+
+// 2. Base - Reset, Typography
+@use './base';
+
+// 3. Layouts
+@use './layouts';
+
+// 4. Components
+@use './components';

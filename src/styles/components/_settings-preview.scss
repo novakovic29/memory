@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+
+// ─────────────────────────────────────────────
+// Settings preview (right column)
+// ─────────────────────────────────────────────
+.settings {
+
+  &__preview-wrap {
+    position: sticky;
+    top: $spacing-lg;
+  }
+
+  &__preview-box {
+    background: $color-dark-bg;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    @include flex-column;
+  }
+
+  &__preview-bar {
+    @include flex-between;
+    padding: $spacing-sm 12px;
+    background: $color-dark-overlay;
+    gap: $spacing-sm;
+  }
+
+  &__preview-dots {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: background $transition-normal;
+
+    &--blue   { background: $color-player-blue; }
+    &--orange { background: $color-player-inactive; }
+  }
+
+  &__preview-info {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__player-indicator {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $color-player-blue;
+    transition: background $transition-normal;
+  }
+
+  &__exit-btn {
+    @include button-reset;
+    font-size: 9px;
+    padding: 3px $spacing-sm;
+    border-radius: $radius-sm;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    transition: background $transition-fast;
+
+    &:hover { background: rgba(255, 255, 255, 0.18); }
+  }
+
+  &__preview-content {
+    flex: 1;
+    @include flex-center;
+    padding: $spacing-lg;
+    background: $color-theme-code-bg;
+    transition: background $transition-slow;
+  }
+
+  &__cards-demo {
+    display: flex;
+    position: relative;
+  }
+
+  &__card-demo {
+    width: 100px;
+    height: 120px;
+    border-radius: $radius-lg;
+    @include flex-center;
+    transition: background $transition-slow, transform $transition-normal;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.85;
+    }
+
+    &--front {
+      background: $color-theme-code-front;
+      z-index: 1;
+    }
+
+    &--back {
+      background: $color-theme-code-back;
+      transform: rotate(8deg) translate(12px, -8px);
+    }
+  }
+}

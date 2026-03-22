@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+// ─────────────────────────────────────────────
+// Settings page layout
+// ─────────────────────────────────────────────
+.settings {
+  background: $color-bg;
+  min-height: 100vh;
+  padding: $spacing-2xl $spacing-3xl;
+  color: $color-text;
+
+  &__header {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  &__underline {
+    width: 120px;
+    height: 3px;
+    background: $color-accent;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    align-items: start;
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__options {
+    @include flex-column;
+  }
+
+  &__section {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__section-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+  }
+}
