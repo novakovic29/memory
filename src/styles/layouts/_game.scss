@@ -160,6 +160,10 @@
   aspect-ratio:          1;
   justify-content:       center;
 
+  &[data-theme='gaming'] {
+    gap: $spacing-xs;  // ← kleinerer Gap nur für Gaming
+  }
+
   // Responsive für verschiedene Board-Größen
   &[data-size="16"] {
     grid-template-columns: repeat(4, 120px);
