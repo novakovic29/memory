@@ -37,7 +37,7 @@ function onSettingsStart(theme: string, player: string, size: string) {
     theme  as 'code' | 'gaming',
     player as 'blue' | 'orange',
     size   as '16' | '24' | '36',
-    false,   // isTwoPlayer – später über Settings steuerbar
+    true,   // isTwoPlayer – immer aktiviert für abwechselndes Spiel
   );
 }
 

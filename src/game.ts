@@ -198,6 +198,9 @@ export class GameController {
 
       if (this.matched.size === this.cards.length) {
         setTimeout(() => this.onGameEnd(), 600);
+      } else {
+        // Spielerwechsel nach erfolgreichem Match
+        this.switchPlayer();
       }
     } else {
       // ❌ Kein Match → nach kurzer Pause zurückdrehen
@@ -208,13 +211,15 @@ export class GameController {
         this.flipped = [];
         this.locked  = false;
 
-        // Spielerwechsel nur im 2-Spieler-Modus
-        if (this.isTwoPlayer) {
-          this.currentPlayer = this.currentPlayer === 'blue' ? 'orange' : 'blue';
-          this.updateCurrentPlayer();
-        }
+        // Spielerwechsel nach Fehlversuch
+        this.switchPlayer();
       }, 1000);
     }
+  }
+
+  private switchPlayer(): void {
+    this.currentPlayer = this.currentPlayer === 'blue' ? 'orange' : 'blue';
+    this.updateCurrentPlayer();
   }
 
   private getCardEl(id: number): HTMLElement | null {
