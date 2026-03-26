@@ -17,7 +17,7 @@ function init() {
   new SettingsController(onSettingsStart);
 
   // Exit game Event (von GameController gefeuert)
-  document.addEventListener('game:exit', () => showHero());
+  document.addEventListener('game:exit', () => showSettings());
 
   // Game-End Overlay Buttons
   document.getElementById('game-end-play-again')?.addEventListener('click', () => {

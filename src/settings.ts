@@ -15,6 +15,7 @@ interface ThemeConfig {
   previewBg: string;
   cardFront: string;
   cardBack:  string;
+  previewImg: string;
 }
 
 // ─────────────────────────────────────────────
@@ -25,11 +26,13 @@ const THEME_CONFIG: Record<Theme, ThemeConfig> = {
     previewBg: '#1e2a1e',
     cardFront: '#26a69a',
     cardBack:  '#f5f5f0',
+    previewImg:  '/assets/themes/preview_code.svg',
   },
   gaming: {
     previewBg: '#1a1a2e',
     cardFront: '#e91e8c',
     cardBack:  '#f5f5f0',
+    previewImg:  '/assets/themes/preview_gaming.svg'
   },
 };
 
@@ -60,12 +63,11 @@ export class SettingsController {
   private onStart: (theme: string, player: string, size: string) => void;
 
   // DOM refs
-  private previewContent  = document.getElementById('preview-content')!;
-  private cardFront       = document.getElementById('card-front')!;
-  private cardBack        = document.getElementById('card-back')!;
-  private dotBlue         = document.getElementById('dot-blue')!;
-  private dotOrange       = document.getElementById('dot-orange')!;
-  private playerIndicator = document.getElementById('player-indicator')!;
+  
+  private previewImg = document.getElementById('preview-img') as HTMLImageElement;
+  
+  
+  
   private barTheme        = document.getElementById('bar-theme')!;
   private barPlayer       = document.getElementById('bar-player')!;
   private barSize         = document.getElementById('bar-size')!;
@@ -100,26 +102,16 @@ export class SettingsController {
   }
 
   // ── Gesamtes UI neu rendern ──
-  private render(): void {
-    this.renderPreview();
-    this.renderPlayerDots();
-    this.renderBottomBar();
-    this.renderStartButton();
-  }
+ private render(): void {
+  this.renderPreview();
+  this.renderBottomBar();
+  this.renderStartButton();
+}
 
-  private renderPreview(): void {
-    const cfg = THEME_CONFIG[this.theme ?? 'code'];
-    this.previewContent.style.background = cfg.previewBg;
-    this.cardFront.style.background      = cfg.cardFront;
-    this.cardBack.style.background       = cfg.cardBack;
-  }
-
-  private renderPlayerDots(): void {
-    const color = this.player ? PLAYER_COLORS[this.player] : PLAYER_COLORS.blue;
-    this.playerIndicator.style.background = color;
-    this.dotBlue.style.background   = this.player === 'orange' ? '#444' : PLAYER_COLORS.blue;
-    this.dotOrange.style.background = this.player === 'orange' ? PLAYER_COLORS.orange : '#444';
-  }
+private renderPreview(): void {
+  const cfg = THEME_CONFIG[this.theme ?? 'code'];
+  this.previewImg.src = cfg.previewImg;
+}
 
   private renderBottomBar(): void {
     this.barTheme.textContent  = this.theme  ? THEME_LABELS[this.theme]   : 'Game theme';
