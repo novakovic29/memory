@@ -34,11 +34,9 @@
     left:            0;
     width:           100%;
     height:          100%;
-    display:         flex;
-    align-items:     center;
-    justify-content: center;
     backface-visibility: hidden;
-    border-radius:   $radius-lg;
+    border-radius:   0;
+    overflow:        hidden;
   }
 
   &__back {
@@ -46,9 +44,9 @@
     border:          2px solid rgba(255, 255, 255, 0.1);
 
     img {
-      width:  80%;
-      height: 80%;
-      object-fit: contain;
+      width:  100%;
+      height: 100%;
+      object-fit: cover;
       opacity: 0.8;
     }
   }
@@ -59,10 +57,20 @@
     transform:       rotateY(180deg);
 
     img {
-      width:  80%;
-      height: 80%;
-      object-fit: contain;
+      width:  100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+  }
+
+  // ── Gaming theme adjustments ──
+  .game__board[data-theme='gaming'] & {
+    .memory-card__front img,
+    .memory-card__back img {
+      object-fit: fill;
+      object-position: center center;
     }
   }
 

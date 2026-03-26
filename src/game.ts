@@ -103,8 +103,9 @@ export class GameController {
 
     // Grid columns: 4 für 16, 6 für 24 und 36
     const cols = this.size === 16 ? 4 : this.size === 24 ? 6 : 6;
-    this.boardEl.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    this.boardEl.style.gridTemplateColumns = `repeat(${cols}, 120px)`;
     this.boardEl.dataset.theme = this.theme;
+    this.boardEl.dataset.size = String(this.size);
 
     this.cards.forEach(card => {
       const el = document.createElement('div');

@@ -147,17 +147,56 @@
   display:        flex;
   align-items:    center;
   justify-content: center;
-  padding:        $spacing-xl;
+  padding:        $spacing-md;
   overflow:       auto;
 }
 
 .game__board {
   display:               grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:                   $spacing-lg;
+  grid-template-columns: repeat(4, 120px);
+  gap:                   $spacing-md;
   max-width:             600px;
   width:                 100%;
   aspect-ratio:          1;
+  justify-content:       center;
+
+  // Responsive für verschiedene Board-Größen
+  &[data-size="16"] {
+    grid-template-columns: repeat(4, 120px);
+  }
+
+  &[data-size="24"] {
+    grid-template-columns: repeat(6, 120px);
+    max-width: 780px;
+  }
+
+  &[data-size="36"] {
+    grid-template-columns: repeat(6, 120px);
+    max-width: 780px;
+  }
+
+  // Mobile Responsive
+  @include mobile {
+    grid-template-columns: repeat(4, minmax(80px, 120px));
+    gap: $spacing-sm;
+    max-width: 90vw;
+
+    &[data-size="24"],
+    &[data-size="36"] {
+      grid-template-columns: repeat(6, minmax(60px, 100px));
+    }
+  }
+
+  // Extra small screens (320px)
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(4, minmax(70px, 100px));
+    gap: $spacing-xs;
+
+    &[data-size="24"],
+    &[data-size="36"] {
+      grid-template-columns: repeat(6, minmax(50px, 80px));
+    }
+  }
 
   &[data-theme='code'] {
     --color-front: #{$color-theme-code-front};
@@ -167,11 +206,6 @@
   &[data-theme='gaming'] {
     --color-front: #{$color-theme-gaming-front};
     --color-back:  #{$color-theme-gaming-bg};
-  }
-
-  @include mobile {
-    gap: $spacing-md;
-    max-width: 90vw;
   }
 }
 
