@@ -1,2 +1,6 @@
-@use '../abstracts' as *;
-@use './settings';
+// ─────────────────────────────────────────────
+// Abstracts – Forward all
+// ─────────────────────────────────────────────
+
+@use 'hero';
+@use 'settings';

@@ -1,0 +1,48 @@
+// ─────────────────────────────────────────────
+// Layout – Hero
+// ─────────────────────────────────────────────
+
+@use '../abstracts' as *;
+
+.hero {
+  position:        relative;
+  overflow:        hidden;
+  background-color: $color-bg-dark;
+  min-height:      100vh;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         0 $spacing-3xl;
+}
+
+.hero__bg-icon {
+  position:       absolute;
+  bottom:         -2rem;
+  left:           -4rem;
+  width:          420px;
+  opacity:        .08;
+  pointer-events: none;
+  filter:         brightness(0) invert(0);
+}
+
+.hero__content {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            1rem;
+}
+
+.hero__subtitle {
+  color:      #fff;
+  font-size:  2.1rem;
+  font-style: italic;
+  opacity:    .85;
+  align-self: flex-start;
+}
+
+.hero__title {
+  color:       #fff;
+  font-size:   clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  margin:      0 0 1rem;
+}

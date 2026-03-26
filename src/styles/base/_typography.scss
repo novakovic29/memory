@@ -1,15 +1,16 @@
+// ─────────────────────────────────────────────
+// Typography
+// ─────────────────────────────────────────────
+
 @use '../abstracts' as *;
 
-// ─────────────────────────────────────────────
-// Typography base
-// ─────────────────────────────────────────────
 body {
-  font-family: $font-body;
-  color: $color-text;
+  font-family: $font-family-base;
+  color:       $color-text-primary;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4 {
-  line-height: 1.1;
-  font-weight: 700;
+  line-height:  1.1;
+  font-weight:  700;
 }

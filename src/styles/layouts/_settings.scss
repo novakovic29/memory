@@ -1,63 +1,100 @@
+// ─────────────────────────────────────────────
+// Layout – Settings
+// ─────────────────────────────────────────────
+
 @use '../abstracts' as *;
 
-// ─────────────────────────────────────────────
-// Settings page layout
-// ─────────────────────────────────────────────
 .settings {
-  background: $color-bg;
+  background: $color-bg-light;
   min-height: 100vh;
-  padding: $spacing-2xl $spacing-3xl;
-  color: $color-text;
+  padding:    $spacing-2xl $spacing-3xl;
+  color:      $color-text-primary;
+}
 
-  &__header {
-    margin-bottom: 40px;
+// ── Header ──
+.settings__header {
+  margin-bottom: 40px;
+}
+
+.settings__title {
+  font-size:   2.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.settings__underline {
+  width:         120px;
+  height:        3px;
+  background:    $color-accent;
+  border-radius: 2px;
+  margin-top:    6px;
+}
+
+// ── Two-column grid ──
+.settings__layout {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   $spacing-2xl;
+  align-items:           start;
+
+  @include mobile {
+    grid-template-columns: 1fr;
   }
+}
 
-  &__title {
-    font-size: 2.6rem;
-    font-weight: 800;
-    line-height: 1.1;
+// ── Left: Options ──
+.settings__options {
+  display:        flex;
+  flex-direction: column;
+}
+
+.settings__section {
+  margin-bottom: $spacing-xl;
+}
+
+.settings__section-title {
+  display:     flex;
+  align-items: center;
+  gap:         $spacing-sm;
+  font-size:   1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+
+  svg {
+    width:      18px;
+    height:     18px;
+    flex-shrink: 0;
   }
+}
 
-  &__underline {
-    width: 120px;
-    height: 3px;
-    background: $color-accent;
-    border-radius: 2px;
-    margin-top: 6px;
+// ── Bottom Bar ──
+.settings__bottom-bar {
+  display:       flex;
+  align-items:   center;
+  margin-top:    $spacing-md;
+  background:    $color-bg-white;
+  border-radius: $radius-lg;
+  border:        1.5px solid $color-border;
+  overflow:      hidden;
+}
+
+.settings__bar-item {
+  flex:        1;
+  padding:     12px $spacing-md;
+  font-size:   .82rem;
+  color:       $color-text-faint;
+  transition:  color $transition-normal;
+  white-space: nowrap;
+
+  &.is-active {
+    color:       $color-text-primary;
+    font-weight: 500;
   }
+}
 
-  &__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing-2xl;
-    align-items: start;
-
-    @include respond-to('md') {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__options {
-    @include flex-column;
-  }
-
-  &__section {
-    margin-bottom: $spacing-xl;
-  }
-
-  &__section-title {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 14px;
-
-    svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-  }
+.settings__bar-sep {
+  color:      $color-border;
+  font-size:  1rem;
+  padding:    0 2px;
+  flex-shrink: 0;
 }

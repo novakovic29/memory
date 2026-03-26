@@ -1,0 +1,105 @@
+// ─────────────────────────────────────────────
+// Settings Preview Box
+// ─────────────────────────────────────────────
+
+@use '../abstracts' as *;
+
+.settings__preview-wrap {
+  position: sticky;
+  top:      $spacing-lg;
+}
+
+.settings__preview-box {
+  background:    $color-bg-dark;
+  border-radius: $radius-xl;
+  overflow:      hidden;
+  aspect-ratio:  4 / 3;
+  display:       flex;
+  flex-direction: column;
+}
+
+// ── Top Bar ──
+.settings__preview-bar {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         $spacing-sm 12px;
+  background:      rgba(#000, .3);
+  gap:             $spacing-sm;
+}
+
+.settings__preview-dots {
+  display: flex;
+  gap:     5px;
+}
+
+.settings__dot {
+  width:         8px;
+  height:        8px;
+  border-radius: $radius-full;
+  transition:    background $transition-normal;
+
+  &--blue   { background: $color-player-blue; }
+  &--orange { background: $color-player-inactive; }
+}
+
+.settings__preview-info {
+  font-size:   10px;
+  color:       rgba(#fff, .5);
+  display:     flex;
+  align-items: center;
+  gap:         $spacing-xs;
+}
+
+.settings__player-indicator {
+  display:       inline-block;
+  width:         7px;
+  height:        7px;
+  border-radius: $radius-full;
+  background:    $color-player-blue;
+  transition:    background $transition-normal;
+}
+
+// ── Preview Content (card demo area) ──
+.settings__preview-content {
+  flex:            1;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         $spacing-lg;
+  background:      $color-theme-code-bg;
+  transition:      background $transition-slow;
+}
+
+.settings__cards-demo {
+  display:  flex;
+  position: relative;
+}
+
+.settings__card-demo {
+  width:         100px;
+  height:        120px;
+  border-radius: $radius-lg;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  transition:
+    background $transition-slow,
+    transform  $transition-normal;
+
+  svg {
+    width:   40px;
+    height:  40px;
+    opacity: .85;
+  }
+
+  &--front {
+    background: $color-theme-code-front;
+    z-index:    1;
+  }
+
+  &--back {
+    background: $color-card-back;
+    transform:  rotate(8deg) translate(12px, -8px);
+  }
+}

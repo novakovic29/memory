@@ -1,15 +1,15 @@
 // ─────────────────────────────────────────────
-// Main Stylesheet - SCSS Architecture
+// Main Stylesheet – 7-1 SCSS Architecture
 // ─────────────────────────────────────────────
 
-// 1. Abstracts - Variables, Mixins, Functions
+// 1. Abstracts – Variables, Mixins (kein CSS-Output)
 @use './abstracts' as *;
 
-// 2. Base - Reset, Typography
+// 2. Base – Reset, Typography
 @use './base';
 
-// 3. Layouts
+// 3. Layouts – Hero, Settings, Game …
 @use './layouts';
 
-// 4. Components
+// 4. Components – Buttons, Radio, Preview …
 @use './components';

@@ -1,69 +1,64 @@
+// ─────────────────────────────────────────────
+// Radio Component
+// ─────────────────────────────────────────────
+
 @use '../abstracts' as *;
 
-// ─────────────────────────────────────────────
-// Custom radio buttons
-// ─────────────────────────────────────────────
-.settings {
+.settings__radio-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+  padding-left:   $spacing-xs;
+}
 
-  &__radio-group {
-    @include flex-column;
-    gap: 10px;
-    padding-left: $spacing-xs;
+.settings__radio-option {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  cursor:      pointer;
+  user-select: none;
+
+  input[type='radio'] { display: none; }
+}
+
+.settings__radio-circle {
+  width:         18px;
+  height:        18px;
+  border-radius: $radius-full;
+  border:        2px solid #ccc;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  flex-shrink:   0;
+  transition:    border-color $transition-fast;
+  position:      relative;
+
+  &::after {
+    content:       '';
+    width:         8px;
+    height:        8px;
+    border-radius: $radius-full;
+    background:    $color-text-primary;
+    opacity:       0;
+    transition:    opacity $transition-fast;
+  }
+}
+
+.settings__radio-label {
+  font-size:  .95rem;
+  color:      $color-text-muted;
+  transition: color $transition-fast;
+}
+
+.settings__radio-option:has(input:checked) {
+  .settings__radio-circle {
+    border-color: $color-text-primary;
+
+    &::after { opacity: 1; }
   }
 
-  &__radio-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    user-select: none;
-
-    // native input verstecken
-    input[type='radio'] {
-      display: none;
-    }
-  }
-
-  &__radio-circle {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: border-color $transition-fast;
-    position: relative;
-
-    &::after {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: $color-text;
-      opacity: 0;
-      transition: opacity $transition-fast;
-    }
-  }
-
-  &__radio-label {
-    font-size: 0.95rem;
-    color: $color-text-subtle;
-    transition: color $transition-fast;
-  }
-
-  // ── Checked state ──
-  &__radio-option:has(input:checked) {
-    .settings__radio-circle {
-      border-color: $color-text;
-
-      &::after { opacity: 1; }
-    }
-
-    .settings__radio-label {
-      color: $color-text;
-      font-weight: 500;
-    }
+  .settings__radio-label {
+    color:       $color-text-primary;
+    font-weight: 500;
   }
 }
