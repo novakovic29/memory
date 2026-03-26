@@ -1,0 +1,94 @@
+// ─────────────────────────────────────────────
+// Component – Memory Card
+// ─────────────────────────────────────────────
+
+@use '../abstracts' as *;
+
+.memory-card {
+  width:           100%;
+  height:          100%;
+  cursor:          pointer;
+  perspective:     1000px;
+  user-select:     none;
+
+  &__inner {
+    position:      relative;
+    width:         100%;
+    height:        100%;
+    transition:    transform 0.6s ease;
+    transform-style: preserve-3d;
+
+    .memory-card.is-flipped & {
+      transform: rotateY(180deg);
+    }
+
+    .memory-card.is-matched & {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__front,
+  &__back {
+    position:        absolute;
+    top:             0;
+    left:            0;
+    width:           100%;
+    height:          100%;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    backface-visibility: hidden;
+    border-radius:   $radius-lg;
+  }
+
+  &__back {
+    background:      var(--color-back, #1e2a1e);
+    transform:       rotateY(180deg);
+    border:          2px solid rgba(255, 255, 255, 0.1);
+
+    img {
+      width:  80%;
+      height: 80%;
+      object-fit: contain;
+      opacity: 0.8;
+    }
+  }
+
+  &__front {
+    background:      var(--color-front, #26a69a);
+    border:          2px solid rgba(0, 0, 0, 0.2);
+
+    img {
+      width:  80%;
+      height: 80%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+  }
+
+  // ── Matched state ──
+  &.is-matched {
+    .memory-card__front,
+    .memory-card__back {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    cursor: default;
+  }
+
+  // ── Hover effect ──
+  &:not(.is-matched):not(.is-flipped):hover {
+    .memory-card__back {
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow:   0 0 10px rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // ── Active flip ──
+  &.is-flipped:not(.is-matched) {
+    .memory-card__inner {
+      transform: rotateY(180deg);
+    }
+  }
+}
