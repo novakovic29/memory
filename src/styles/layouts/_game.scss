@@ -139,7 +139,8 @@
 .game[data-theme='gaming'] #exit-game-btn {
   background: transparent;
   border: 1px solid #ff2e82;
-  color: #ff2e82;
+  color: rgba(255, 255, 255, 1);
+
 }
 
 .game[data-theme='gaming'] #exit-game-btn:hover {
@@ -189,10 +190,10 @@
 .game__board {
   display:               grid;
   grid-template-columns: repeat(4, 120px);
+  grid-auto-rows:        120px;
   gap:                   $spacing-md;
   max-width:             600px;
   width:                 100%;
-  aspect-ratio:          1;
   justify-content:       center;
 
   &[data-theme='gaming'] {
@@ -253,11 +254,13 @@
 }
 
 .game[data-theme='gaming'] .game__hud {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(253, 150, 201, 0.2);
   border-bottom: none;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
   border-radius: 24px;
   padding: $spacing-lg $spacing-2xl;
+  width: min(100%, 1740px);
+  margin: $spacing-lg auto 0;
 }
 
 .game[data-theme='gaming'] .game__hud-current {
