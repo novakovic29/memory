@@ -146,6 +146,36 @@
   background: rgba(255, 46, 130, 0.12);
 }
 
+.game[data-theme='gaming'] .game__hud-scores {
+  gap: $spacing-lg;
+  background: #ffffff;
+  border-radius: $radius-xl;
+  padding: $spacing-sm $spacing-md;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+  display: flex;
+  align-items: center;
+}
+
+.game[data-theme='gaming'] .game__hud-player {
+  background: transparent;
+  border: none;
+  padding: 0;
+  gap: $spacing-sm;
+  flex: 0 0 auto;
+}
+
+.game[data-theme='gaming'] .game__hud-player--blue {
+  color: #4fc3f7;
+}
+
+.game[data-theme='gaming'] .game__hud-player--orange {
+  color: #ff9800;
+}
+
+.game[data-theme='gaming'] .game__hud-player .game__hud-name {
+  display: none;
+}
+
 // ── Board Container ──
 .game__board-wrap {
   flex:           1;
@@ -235,7 +265,33 @@
 }
 
 .game[data-theme='gaming'] .game__hud-player {
-  color: #fff;
+  color: transparent;
+}
+
+.game[data-theme='gaming'] .game__hud-player--blue .game__hud-score {
+  color: #4fc3f7;
+  font-weight: 700;
+}
+
+.game[data-theme='gaming'] .game__hud-player--orange .game__hud-score {
+  color: #ff9800;
+  font-weight: 700;
+}
+
+.game[data-theme='gaming'] .game__hud-player .game__hud-name {
+  display: none;
+}
+
+.game[data-theme='gaming'] .game__hud-player {
+  gap: $spacing-xs;
+}
+
+.game[data-theme='gaming'] .game__hud-current {
+  justify-content: center;
+}
+
+.game[data-theme='gaming'] .game__hud-current-label {
+  display: none;
 }
 
 .game__board[data-theme='gaming'] {

@@ -144,15 +144,10 @@ export class GameController {
   }
 
   private updateCurrentPlayer(): void {
-    const COLORS: Record<PlayerKey, string> = {
-      blue:   '#4fc3f7',
-      orange: '#ff9800',
-    };
-    const color = COLORS[this.currentPlayer];
     const themeSuffix = this.theme === 'gaming' ? 'game' : this.theme;
     this.currentIconEl.src = `/assets/player_${this.currentPlayer}_${themeSuffix}.png`;
-    this.playerLabelEl.textContent       = this.currentPlayer === 'blue' ? 'Blue' : 'Orange';
-    this.playerLabelEl.style.color       = color;
+    this.playerLabelEl.textContent = '';
+    this.playerLabelEl.style.color = '';
 
     // Dot im HUD highlighten
     const dotBlue   = document.getElementById('hud-icon-blue')!;
