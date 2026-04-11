@@ -39,8 +39,10 @@ export class GameController {
   private boardEl:       HTMLElement;
   private scoreBlueEl:   HTMLElement;
   private scoreOrangeEl: HTMLElement;
-  private currentDotEl:  HTMLElement;
+  private currentIconEl: HTMLImageElement;
   private playerLabelEl: HTMLElement;
+  private iconBlueEl:    HTMLImageElement;
+  private iconOrangeEl:  HTMLImageElement;
 
   constructor(
     theme:      Theme,
@@ -57,8 +59,10 @@ export class GameController {
     this.boardEl       = document.getElementById('game-board')!;
     this.scoreBlueEl   = document.getElementById('score-blue')!;
     this.scoreOrangeEl = document.getElementById('score-orange')!;
-    this.currentDotEl  = document.getElementById('current-player-dot')!;
+    this.currentIconEl = document.getElementById('current-player-icon')! as HTMLImageElement;
     this.playerLabelEl = document.getElementById('current-player-label')!;
+    this.iconBlueEl    = document.getElementById('hud-icon-blue')! as HTMLImageElement;
+    this.iconOrangeEl  = document.getElementById('hud-icon-orange')! as HTMLImageElement;
 
     this.buildCards();
     this.renderBoard();
@@ -128,6 +132,11 @@ export class GameController {
 
   // ── HUD ─────────────────────────────────────
   private renderHUD(): void {
+    // Set player icons based on theme
+    const themeSuffix = this.theme === 'gaming' ? 'game' : this.theme;
+    this.iconBlueEl.src   = `/assets/player_blue_${themeSuffix}.png`;
+    this.iconOrangeEl.src = `/assets/player_orange_${themeSuffix}.png`;
+
     this.scoreBlueEl.textContent   = String(this.scores.blue.score);
     this.scoreOrangeEl.textContent = String(this.scores.orange.score);
     this.updateCurrentPlayer();
@@ -139,13 +148,14 @@ export class GameController {
       orange: '#ff9800',
     };
     const color = COLORS[this.currentPlayer];
-    this.currentDotEl.style.background  = color;
+    const themeSuffix = this.theme === 'gaming' ? 'game' : this.theme;
+    this.currentIconEl.src = `/assets/player_${this.currentPlayer}_${themeSuffix}.png`;
     this.playerLabelEl.textContent       = this.currentPlayer === 'blue' ? 'Blue' : 'Orange';
     this.playerLabelEl.style.color       = color;
 
     // Dot im HUD highlighten
-    const dotBlue   = document.getElementById('hud-dot-blue')!;
-    const dotOrange = document.getElementById('hud-dot-orange')!;
+    const dotBlue   = document.getElementById('hud-icon-blue')!;
+    const dotOrange = document.getElementById('hud-icon-orange')!;
     dotBlue.classList.toggle('is-active',   this.currentPlayer === 'blue');
     dotOrange.classList.toggle('is-active', this.currentPlayer === 'orange');
   }

@@ -45,24 +45,23 @@
   }
 }
 
-.game__hud-dot {
+.game__hud-icon {
   display: inline-block;
-  width:   12px;
-  height:  12px;
-  border-radius: 50%;
+  width:   20px;
+  height:  20px;
   opacity: 0.6;
 
   .game__hud-player--blue & {
-    background: $color-player-blue;
+    // Optional: filter für Blau, falls nötig
   }
 
   .game__hud-player--orange & {
-    background: $color-player-orange;
+    // Optional: filter für Orange, falls nötig
   }
 
   &.is-active {
     opacity: 1;
-    box-shadow: 0 0 8px currentColor;
+    // Optional: box-shadow oder ähnlich
   }
 }
 
@@ -93,11 +92,10 @@
   }
 }
 
-.game__hud-current-dot {
+.game__hud-current-icon {
   display: inline-block;
-  width:   10px;
-  height:  10px;
-  border-radius: 50%;
+  width:   16px;
+  height:  16px;
   margin-left: $spacing-xs;
 }
 
