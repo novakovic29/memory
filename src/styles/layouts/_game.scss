@@ -202,6 +202,50 @@
   }
 }
 
+.game[data-theme='gaming'] {
+  background: #214558;
+}
+
+.game[data-theme='gaming'] .game__hud {
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  border-radius: 24px;
+  padding: $spacing-lg $spacing-2xl;
+}
+
+.game[data-theme='gaming'] .game__hud-current {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.game[data-theme='gaming'] .game__hud-player {
+  color: #fff;
+}
+
+.game__board[data-theme='gaming'] {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.game__board[data-theme='gaming'] .memory-card {
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.game__board[data-theme='gaming'] .memory-card__front,
+.game__board[data-theme='gaming'] .memory-card__back {
+  border-radius: 0;
+  background: transparent;
+}
+
+.game__board[data-theme='gaming'] .memory-card__front img,
+.game__board[data-theme='gaming'] .memory-card__back img {
+  border-radius: 0;
+}
+
 // ── End Game Overlay ──
 .game__end-overlay {
   position:       fixed;
