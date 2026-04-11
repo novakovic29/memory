@@ -95,15 +95,12 @@
   font-size:   1rem;
 }
 
-.game__exit-btn {
+#exit-game-btn {
   display:        flex;
   align-items:    center;
   gap:            $spacing-sm;
   padding:        8px 12px;
-  background:     rgba(255, 255, 255, 0.1);
-  border:         1px solid rgba(255, 255, 255, 0.2);
   border-radius:  $radius-lg;
-  color:          rgba(255, 255, 255, 0.8);
   cursor:         pointer;
   font-size:      0.9rem;
   transition:     all $transition-normal;
@@ -114,9 +111,7 @@
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color:      rgba(255, 255, 255, 1);
-    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
   }
 
   @include mobile {
@@ -128,6 +123,27 @@
       height: 16px;
     }
   }
+}
+
+.game[data-theme='code'] #exit-game-btn {
+  background: #798b88;
+  border: 1px solid #66CFBC;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.game[data-theme='code'] #exit-game-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #66CFBC;
+}
+
+.game[data-theme='gaming'] #exit-game-btn {
+  background: transparent;
+  border: 1px solid #ff2e82;
+  color: #ff2e82;
+}
+
+.game[data-theme='gaming'] #exit-game-btn:hover {
+  background: rgba(255, 46, 130, 0.12);
 }
 
 // ── Board Container ──
@@ -425,7 +441,7 @@
   }
 }
 
-.game__exit-btn {
+.game__exit-overlay .game__exit-btn {
   display:        flex;
   align-items:    center;
   justify-content: center;
