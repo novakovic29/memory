@@ -315,3 +315,116 @@
     font-size: 0.95rem;
   }
 }
+
+// ── Exit Game Overlay ──
+.game__exit-overlay {
+  position:       fixed;
+  top:            0;
+  left:           0;
+  width:          100%;
+  height:         100%;
+  background:     rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  z-index:        1000;
+  animation:      fadeInExit $transition-normal;
+}
+
+@keyframes fadeInExit {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.game__exit-card {
+  background:    $color-bg-white;
+  border-radius: $radius-xl;
+  padding:       $spacing-2xl;
+  text-align:    center;
+  box-shadow:    0 20px 40px rgba(0, 0, 0, 0.12);
+  animation:     slideUpExit 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border:        1px solid rgba(79, 195, 247, 0.25);
+  width:         min(520px, 90%);
+
+  @include mobile {
+    padding: $spacing-xl;
+    margin:  $spacing-lg;
+  }
+}
+
+@keyframes slideUpExit {
+  from {
+    transform: translateY(16px);
+    opacity:   0;
+  }
+  to {
+    transform: translateY(0);
+    opacity:   1;
+  }
+}
+
+.game__exit-message {
+  font-size:      2rem;
+  font-weight:    800;
+  margin-bottom:  $spacing-xl;
+  color:          $color-text-primary;
+  line-height:    1.1;
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
+}
+
+.game__exit-actions {
+  display: flex;
+  gap:     $spacing-md;
+  justify-content: center;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.game__exit-btn {
+  padding:        14px 28px;
+  border-radius:  $radius-lg;
+  border:         2px solid transparent;
+  font-weight:    700;
+  font-size:      1rem;
+  cursor:         pointer;
+  transition:     all $transition-normal;
+  min-width:      170px;
+
+  &--primary {
+    background: $color-player-blue;
+    color:      #fff;
+    border-color: $color-player-blue;
+
+    &:hover {
+      background: darken($color-player-blue, 5%);
+      transform:  translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color:      $color-player-blue;
+    border-color: $color-player-blue;
+
+    &:hover {
+      background: rgba(79, 195, 247, 0.12);
+      transform:  translateY(-2px);
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+}

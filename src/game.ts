@@ -171,6 +171,15 @@ export class GameController {
 
     // Exit button
     document.getElementById('exit-game-btn')?.addEventListener('click', () => {
+      this.showExitOverlay();
+    });
+
+    // Exit overlay buttons
+    document.getElementById('game-exit-back')?.addEventListener('click', () => {
+      this.hideExitOverlay();
+    });
+    document.getElementById('game-exit-confirm')?.addEventListener('click', () => {
+      this.hideExitOverlay();
       this.onExit();
     });
   }
@@ -254,5 +263,15 @@ export class GameController {
   private onExit(): void {
     // Zurück zur Hero-Section → main.ts übernimmt
     document.dispatchEvent(new CustomEvent('game:exit'));
+  }
+
+  private showExitOverlay(): void {
+    const overlay = document.getElementById('game-exit-overlay')!;
+    overlay.style.display = 'flex';
+  }
+
+  private hideExitOverlay(): void {
+    const overlay = document.getElementById('game-exit-overlay')!;
+    overlay.style.display = 'none';
   }
 }
