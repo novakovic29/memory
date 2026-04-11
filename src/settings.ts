@@ -76,6 +76,7 @@ export class SettingsController {
   constructor(onStart: (theme: string, player: string, size: string) => void) {
     this.onStart = onStart;
     this.bindRadios();
+    this.bindHover();
     this.startBtn?.addEventListener('click', () => this.handleStart());
     this.render();
   }
@@ -101,6 +102,20 @@ export class SettingsController {
     });
   }
 
+  // ── Hover für Theme-Preview ──
+  private bindHover(): void {
+    document.querySelectorAll<HTMLInputElement>('input[name="theme"]').forEach((input) => {
+      const label = input.parentElement as HTMLLabelElement;
+      label.addEventListener('mouseenter', () => {
+        const hoveredTheme = input.value as Theme;
+        this.renderPreview(hoveredTheme);
+      });
+      label.addEventListener('mouseleave', () => {
+        this.renderPreview();
+      });
+    });
+  }
+
   // ── Gesamtes UI neu rendern ──
  private render(): void {
   this.renderPreview();
@@ -108,8 +123,9 @@ export class SettingsController {
   this.renderStartButton();
 }
 
-private renderPreview(): void {
-  const cfg = THEME_CONFIG[this.theme ?? 'code'];
+private renderPreview(overrideTheme?: Theme): void {
+  const themeToUse = overrideTheme ?? this.theme ?? 'code';
+  const cfg = THEME_CONFIG[themeToUse];
   this.previewImg.src = cfg.previewImg;
 }
 
