@@ -51,17 +51,8 @@
   height:  20px;
   opacity: 0.6;
 
-  .game__hud-player--blue & {
-    // Optional: filter für Blau, falls nötig
-  }
-
-  .game__hud-player--orange & {
-    // Optional: filter für Orange, falls nötig
-  }
-
   &.is-active {
     opacity: 1;
-    // Optional: box-shadow oder ähnlich
   }
 }
 
@@ -343,12 +334,12 @@
 
 .game__exit-card {
   background:    $color-bg-white;
-  border-radius: $radius-xl;
+  border-radius: 0;
   padding:       $spacing-2xl;
   text-align:    center;
   box-shadow:    0 20px 40px rgba(0, 0, 0, 0.12);
   animation:     slideUpExit 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  border:        1px solid rgba(79, 195, 247, 0.25);
+  border:        none;
   width:         min(520px, 90%);
 
   @include mobile {
@@ -392,8 +383,8 @@
 
 .game__exit-btn {
   padding:        14px 28px;
-  border-radius:  $radius-lg;
-  border:         2px solid transparent;
+  border-radius:  0;
+  border:         none;
   font-weight:    700;
   font-size:      1rem;
   cursor:         pointer;
@@ -403,7 +394,6 @@
   &--primary {
     background: $color-player-blue;
     color:      #fff;
-    border-color: $color-player-blue;
 
     &:hover {
       background: darken($color-player-blue, 5%);
@@ -414,7 +404,6 @@
   &--secondary {
     background: transparent;
     color:      $color-player-blue;
-    border-color: $color-player-blue;
 
     &:hover {
       background: rgba(79, 195, 247, 0.12);
@@ -427,4 +416,77 @@
     padding: 12px 18px;
     font-size: 0.95rem;
   }
+}
+
+.game__exit-overlay--gaming {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.game__exit-overlay--gaming .game__exit-card {
+  background: #e9f4f8;
+  border: none;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+.game__exit-overlay--gaming .game__exit-message {
+  color: #13304f;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.game__exit-overlay--gaming .game__exit-btn--primary {
+  background: #ff2e82;
+  color: #fff;
+  border-color: #ff2e82;
+}
+
+.game__exit-overlay--gaming .game__exit-btn--primary:hover {
+  background: darken(#ff2e82, 5%);
+}
+
+.game__exit-overlay--gaming .game__exit-btn--secondary {
+  background: transparent;
+  color: #ff2e82;
+  border-color: #ff2e82;
+}
+
+.game__exit-overlay--gaming .game__exit-btn--secondary:hover {
+  background: rgba(255, 46, 130, 0.12);
+}
+
+.game__exit-overlay--code {
+  background: rgba(102, 207, 188, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.game__exit-overlay--code .game__exit-card {
+  background: #f2fffb;
+  border: none;
+  box-shadow: 0 24px 60px rgba(17, 98, 85, 0.12);
+}
+
+.game__exit-overlay--code .game__exit-message {
+  color: #13433c;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.game__exit-overlay--code .game__exit-btn--primary {
+  background: #66CFBC;
+  color: #fff;
+}
+
+.game__exit-overlay--code .game__exit-btn--primary:hover {
+  background: darken(#66CFBC, 8%);
+}
+
+.game__exit-overlay--code .game__exit-btn--secondary {
+  background: transparent;
+  color: #66CFBC;
+  border: 1px solid #66CFBC;
+}
+
+.game__exit-overlay--code .game__exit-btn--secondary:hover {
+  background: rgba(102, 207, 188, 0.15);
 }

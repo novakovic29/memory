@@ -267,6 +267,8 @@ export class GameController {
 
   private showExitOverlay(): void {
     const overlay = document.getElementById('game-exit-overlay')!;
+    overlay.classList.toggle('game__exit-overlay--gaming', this.theme === 'gaming');
+    overlay.classList.toggle('game__exit-overlay--code', this.theme === 'code');
     overlay.style.display = 'flex';
   }
 
