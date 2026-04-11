@@ -267,6 +267,17 @@ export class GameController {
 
   private showExitOverlay(): void {
     const overlay = document.getElementById('game-exit-overlay')!;
+    const backBtn = document.getElementById('game-exit-back')!;
+    const confirmBtn = document.getElementById('game-exit-confirm')!;
+
+    if (this.theme === 'code') {
+      backBtn.textContent = 'Back to game';
+      confirmBtn.textContent = 'Exit game';
+    } else {
+      backBtn.textContent = 'No, back to game';
+      confirmBtn.textContent = 'Yes, quit game';
+    }
+
     overlay.classList.toggle('game__exit-overlay--gaming', this.theme === 'gaming');
     overlay.classList.toggle('game__exit-overlay--code', this.theme === 'code');
     overlay.style.display = 'flex';

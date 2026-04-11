@@ -382,6 +382,10 @@
 }
 
 .game__exit-btn {
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  gap:            $spacing-sm;
   padding:        14px 28px;
   border-radius:  0;
   border:         none;
@@ -426,6 +430,7 @@
 .game__exit-overlay--gaming .game__exit-card {
   background: #e9f4f8;
   border: none;
+  border-radius: $radius-xl;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
 }
 
@@ -438,7 +443,7 @@
 .game__exit-overlay--gaming .game__exit-btn--primary {
   background: #ff2e82;
   color: #fff;
-  border-color: #ff2e82;
+  border-radius: $radius-lg;
 }
 
 .game__exit-overlay--gaming .game__exit-btn--primary:hover {
@@ -448,7 +453,8 @@
 .game__exit-overlay--gaming .game__exit-btn--secondary {
   background: transparent;
   color: #ff2e82;
-  border-color: #ff2e82;
+  border: 1px solid #ff2e82;
+  border-radius: $radius-lg;
 }
 
 .game__exit-overlay--gaming .game__exit-btn--secondary:hover {
