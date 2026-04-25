@@ -73,6 +73,8 @@ export class SettingsController {
   private barSize         = document.getElementById('bar-size')!;
   private barLine1         = document.getElementById('bar-line-1') as HTMLImageElement;
   private barLine2         = document.getElementById('bar-line-2') as HTMLImageElement;
+  private btnDisabled     = document.getElementById('btn-disabled') as HTMLImageElement;
+  private btnPlay         = document.getElementById('btn-play') as HTMLImageElement;
   private startBtn        = document.getElementById('start-btn') as HTMLButtonElement;
 
   constructor(onStart: (theme: string, player: string, size: string) => void) {
@@ -80,6 +82,8 @@ export class SettingsController {
     this.bindRadios();
     this.bindHover();
     this.startBtn?.addEventListener('click', () => this.handleStart());
+    this.btnDisabled?.addEventListener('click', () => this.handleStart());
+    this.btnPlay?.addEventListener('click', () => this.handleStart());
     this.render();
   }
 
@@ -139,6 +143,7 @@ private renderPreview(overrideTheme?: Theme): void {
     this.barTheme.classList.toggle('is-active',  !!this.theme);
     this.barPlayer.classList.toggle('is-active', !!this.player);
     this.barSize.classList.toggle('is-active',   !!this.size);
+    this.barTheme.classList.toggle('is-code-theme', this.theme === 'code');
 
     // Show/hide line images based on selections
     this.barLine1.style.display = this.theme ? 'inline' : 'none';
@@ -153,11 +158,25 @@ private renderPreview(overrideTheme?: Theme): void {
     const isReady = !!this.theme && !!this.player && !!this.size;
     this.startBtn.disabled = !isReady;
     this.startBtn.classList.toggle('is-ready', isReady);
+    this.btnDisabled.style.display = isReady ? 'none' : 'inline-block';
+    this.btnPlay.style.display     = isReady ? 'inline-block' : 'none';
   }
 
   private handleStart(): void {
     if (!this.theme || !this.player || !this.size) return;
     this.onStart(this.theme, this.player, this.size);
+  }
+
+  public reset(): void {
+    this.theme = null;
+    this.player = null;
+    this.size = null;
+
+    document.querySelectorAll<HTMLInputElement>('input[name="theme"]').forEach((r) => r.checked = false);
+    document.querySelectorAll<HTMLInputElement>('input[name="player"]').forEach((r) => r.checked = false);
+    document.querySelectorAll<HTMLInputElement>('input[name="size"]').forEach((r) => r.checked = false);
+
+    this.render();
   }
 
   // Einstellungen von außen abrufen

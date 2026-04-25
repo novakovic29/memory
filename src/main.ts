@@ -14,10 +14,13 @@ function init() {
   document.getElementById('play-btn')?.addEventListener('click', showSettings);
 
   // Settings Controller
-  new SettingsController(onSettingsStart);
+  const settingsController = new SettingsController(onSettingsStart);
 
   // Exit game Event (von GameController gefeuert)
-  document.addEventListener('game:exit', () => showSettings());
+  document.addEventListener('game:exit', () => {
+    settingsController.reset();
+    showSettings();
+  });
 
   // Game-End Overlay Buttons
   document.getElementById('game-end-play-again')?.addEventListener('click', () => {

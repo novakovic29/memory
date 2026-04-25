@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memory</title>
   <link rel="preload" href="/assets/stadia_controller_background.svg" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;500;600;700&family=Red+Rose:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -120,12 +123,14 @@
     <span class="settings__bar-item" id="bar-player">Player</span>
     <img src="/assets/line.png" alt="" class="settings__bar-line" id="bar-line-2" style="display: none;">
     <span class="settings__bar-item" id="bar-size">Board size</span>
-    <button class="settings__start-btn" id="start-btn" type="button" disabled>
+    <button class="settings__start-btn" id="start-btn" type="button" disabled style="display:none;">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <polygon points="5,3 19,12 5,21"/>
       </svg>
       Start
     </button>
+    <img src="/assets/btn_disabled.png" alt="Disabled play button" class="settings__start-img settings__start-img--disabled" id="btn-disabled">
+    <img src="/assets/btn_play.png" alt="Play button" class="settings__start-img settings__start-img--play" id="btn-play" style="display:none;">
   </div>
 
 </div>
