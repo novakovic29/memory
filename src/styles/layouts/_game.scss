@@ -129,6 +129,7 @@
   background: #798b88;
   border: 1px solid #66CFBC;
   color: rgba(255, 255, 255, 0.8);
+  border-radius: 0;
 }
 
 .game[data-theme='code'] #exit-game-btn:hover {
@@ -140,6 +141,7 @@
   background: transparent;
   border: 1px solid #ff2e82;
   color: rgba(255, 255, 255, 1);
+  border-radius: $radius-lg;
 
 }
 
@@ -506,8 +508,8 @@
   justify-content: center;
   gap:            $spacing-sm;
   padding:        14px 28px;
-  border-radius:  0;
   border:         none;
+  border-radius:  0;
   font-weight:    700;
   font-size:      1rem;
   cursor:         pointer;
