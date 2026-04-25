@@ -65,9 +65,8 @@ export class SettingsController {
   // DOM refs
   
   private previewImg = document.getElementById('preview-img') as HTMLImageElement;
-  
-  
-  
+  private previewWrap = document.querySelector('.settings__preview-wrap') as HTMLDivElement;
+
   private barTheme        = document.getElementById('bar-theme')!;
   private barPlayer       = document.getElementById('bar-player')!;
   private barSize         = document.getElementById('bar-size')!;
@@ -143,7 +142,8 @@ private renderPreview(overrideTheme?: Theme): void {
     this.barTheme.classList.toggle('is-active',  !!this.theme);
     this.barPlayer.classList.toggle('is-active', !!this.player);
     this.barSize.classList.toggle('is-active',   !!this.size);
-    this.barTheme.classList.toggle('is-code-theme', this.theme === 'code');
+    this.previewWrap?.classList.toggle('is-code-theme', this.theme === 'code');
+    this.previewWrap?.classList.toggle('is-gaming-theme', this.theme === 'gaming');
 
     // Show/hide line images based on selections
     this.barLine1.style.display = this.theme ? 'inline' : 'none';

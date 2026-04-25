@@ -95,9 +95,19 @@
     color:       $color-text-primary;
     font-weight: 500;
   }
+}
 
+.settings__preview-wrap {
   &.is-code-theme {
     font-family: 'Red Rose', cursive;
+  }
+
+  &.is-gaming-theme {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .settings__bottom-bar {
+    font-family: $font-family-base;
   }
 }
 
