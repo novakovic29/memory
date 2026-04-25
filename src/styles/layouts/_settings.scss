@@ -7,7 +7,7 @@
 .settings {
   background: $color-bg-light;
   min-height: 100vh;
-  padding:    $spacing-lg $spacing-xl;
+  padding:    $spacing-3xl $spacing-xl $spacing-lg $spacing-4xl;
   color:      $color-text-primary;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .settings__section {
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-xl;
 }
 
 .settings__section-title {

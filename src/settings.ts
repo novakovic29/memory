@@ -71,6 +71,8 @@ export class SettingsController {
   private barTheme        = document.getElementById('bar-theme')!;
   private barPlayer       = document.getElementById('bar-player')!;
   private barSize         = document.getElementById('bar-size')!;
+  private barLine1         = document.getElementById('bar-line-1') as HTMLImageElement;
+  private barLine2         = document.getElementById('bar-line-2') as HTMLImageElement;
   private startBtn        = document.getElementById('start-btn') as HTMLButtonElement;
 
   constructor(onStart: (theme: string, player: string, size: string) => void) {
@@ -137,6 +139,14 @@ private renderPreview(overrideTheme?: Theme): void {
     this.barTheme.classList.toggle('is-active',  !!this.theme);
     this.barPlayer.classList.toggle('is-active', !!this.player);
     this.barSize.classList.toggle('is-active',   !!this.size);
+
+    // Show/hide line images based on selections
+    this.barLine1.style.display = this.theme ? 'inline' : 'none';
+    this.barLine2.style.display = this.player ? 'inline' : 'none';
+
+    // Theme-based separator styling (removed since we're using images now)
+    const bottomBar = this.barTheme.parentElement!;
+    bottomBar.className = 'settings__bottom-bar';
   }
 
   private renderStartButton(): void {

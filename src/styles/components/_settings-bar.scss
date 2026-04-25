@@ -13,15 +13,23 @@
     border-radius: $radius-lg;
     border: 1.5px solid $color-border;
     overflow: hidden;
+    height: 81px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__bar-item {
     flex: 1;
-    padding: 12px $spacing-md;
+    padding: 6px $spacing-md;
     font-size: 0.82rem;
     color: $color-text-muted;
     transition: color $transition-normal;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
     &.is-active {
       color: $color-text;
@@ -34,6 +42,14 @@
     font-size: 1rem;
     padding: 0 2px;
     flex-shrink: 0;
+  }
+
+  &__bar-line {
+    height: 16px;
+    width: auto;
+    margin: 0 4px;
+    flex-shrink: 0;
+    object-fit: contain;
   }
 
   &__start-btn {
