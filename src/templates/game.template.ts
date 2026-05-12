@@ -58,11 +58,13 @@ export function gameTemplate(): string {
 
     <!-- Winner Overlay -->
     <div class="game__winner-overlay" id="game-winner-overlay" style="display: none;">
-      <img src="/assets/themes/code_result/confetti.png" alt="" class="game__winner-confetti" aria-hidden="true">
       <div class="game__winner-content">
-        <p class="game__winner-subtitle">The winner is</p>
+        <!-- Code theme: text name -->
         <p class="game__winner-name" id="winner-name"></p>
-        <img src="" alt="Winner player" class="game__winner-icon" id="winner-icon">
+        <!-- Gaming theme: name image -->
+        <img src="" alt="" class="game__winner-name-img" id="winner-name-img" style="display:none;">
+        <!-- Icon (chess pawn für code / pockal für gaming) -->
+        <img src="" alt="Winner" class="game__winner-icon" id="winner-icon">
         <button class="game__winner-btn" id="game-winner-back">Back to start</button>
       </div>
     </div>

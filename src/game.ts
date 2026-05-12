@@ -179,9 +179,11 @@ export class GameController {
       this.onExit();
     });
 
-    // DEV: E-Taste beendet Spiel sofort mit simuliertem Gewinner
+    // DEV: E-Taste beendet Spiel sofort mit Gaming-Theme + Blue gewinnt
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'e' && e.key !== 'E') return;
+      this.theme = 'gaming';
+      document.getElementById('game')!.dataset.theme = 'gaming';
       this.scores.blue.score   = 8;
       this.scores.orange.score = 8;
       this.onGameEnd();
@@ -259,6 +261,11 @@ export class GameController {
     document.getElementById('end-score-blue')!.textContent   = String(this.scores.blue.score);
     document.getElementById('end-score-orange')!.textContent = String(this.scores.orange.score);
 
+    const gameOverImg = document.querySelector('.game__end-gameover-img') as HTMLImageElement;
+    gameOverImg.src = this.theme === 'gaming'
+      ? '/assets/themes/gaming_result/game_over_gaming.png'
+      : '/assets/themes/code_result/game_over.png';
+
     const endOverlay = document.getElementById('game-end-overlay')!;
     endOverlay.style.display = 'flex';
 
@@ -278,27 +285,55 @@ export class GameController {
       return;
     }
 
-    const nameEl = document.getElementById('winner-name')!;
-    nameEl.textContent = `${winner.toUpperCase()} PLAYER`;
-    nameEl.className   = `game__winner-name game__winner-name--${winner}`;
+    const nameEl    = document.getElementById('winner-name')!;
+    const nameImgEl = document.getElementById('winner-name-img') as HTMLImageElement;
+    const iconEl    = document.getElementById('winner-icon')     as HTMLImageElement;
+    const backBtn   = document.getElementById('game-winner-back')!;
 
-    (document.getElementById('winner-icon') as HTMLImageElement).src =
-      `/assets/themes/code_result/chess_pawn_${winner}.png`;
+    if (this.theme === 'gaming') {
+      nameEl.style.display    = 'none';
+      nameImgEl.src           = `/assets/themes/gaming_result/winner_${winner}.png`;
+      nameImgEl.style.display = 'block';
+      iconEl.src              = '/assets/themes/gaming_result/pockal.png';
+      backBtn.textContent     = 'Home';
+    } else {
+      nameImgEl.style.display = 'none';
+      nameEl.style.display    = '';
+      nameEl.textContent      = `${winner.toUpperCase()} PLAYER`;
+      nameEl.className        = `game__winner-name game__winner-name--${winner}`;
+      iconEl.src              = `/assets/themes/code_result/chess_pawn_${winner}.png`;
+      backBtn.textContent     = 'Back to start';
+    }
 
     const overlay = document.getElementById('game-winner-overlay')!;
     overlay.style.display = 'flex';
 
-    document.getElementById('game-winner-back')?.addEventListener('click', () => {
+    backBtn.addEventListener('click', () => {
       overlay.style.display = 'none';
       document.dispatchEvent(new CustomEvent('game:exit'));
     }, { once: true });
   }
 
   private showDrawScreen(): void {
+    const titleImg = document.querySelector('.game__draw-title-img') as HTMLImageElement;
+    const scaleImg = document.querySelector('.game__draw-icon')      as HTMLImageElement;
+    const backBtn  = document.getElementById('game-draw-back')!;
+
+    if (this.theme === 'gaming') {
+      titleImg.src              = '/assets/themes/gaming_result/its_draw_gaming.png';
+      scaleImg.style.display    = 'none';
+      backBtn.textContent       = 'Home';
+    } else {
+      titleImg.src              = '/assets/themes/code_result/its_draw.png';
+      scaleImg.src              = '/assets/themes/code_result/scale_icon.png';
+      scaleImg.style.display    = '';
+      backBtn.textContent       = 'Back to start';
+    }
+
     const overlay = document.getElementById('game-draw-overlay')!;
     overlay.style.display = 'flex';
 
-    document.getElementById('game-draw-back')?.addEventListener('click', () => {
+    backBtn.addEventListener('click', () => {
       overlay.style.display = 'none';
       document.dispatchEvent(new CustomEvent('game:exit'));
     }, { once: true });

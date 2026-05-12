@@ -443,6 +443,31 @@
   }
 }
 
+// ── End Overlay: Gaming-Theme Overrides ──
+.game[data-theme='gaming'] .game__end-overlay {
+  background: #214558;
+}
+
+.game[data-theme='gaming'] .game__end-score-title {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.game[data-theme='gaming'] .game__end-scores {
+  background:    rgba(255, 255, 255, 0.92);
+  border-radius: $radius-lg;
+  padding:       $spacing-sm $spacing-lg;
+  gap:           $spacing-xl;
+}
+
+.game[data-theme='gaming'] .game__end-score-badge {
+  background: transparent;
+  border:     none;
+  color:      #1a1a1a;
+}
+
+.game[data-theme='gaming'] .game__end-score-badge--blue   { color: $color-player-blue; }
+.game[data-theme='gaming'] .game__end-score-badge--orange { color: $color-player-orange; }
+
 // ── Winner Overlay ──
 .game__winner-overlay {
   position:        fixed;
@@ -528,6 +553,20 @@
   &:hover { background: rgba(255, 46, 130, 0.12); }
 }
 
+.game[data-theme='gaming'] .game__winner-overlay {
+  background: #214558;
+}
+
+.game__winner-name-img {
+  max-width: 320px;
+  width:     65%;
+}
+
+.game[data-theme='gaming'] .game__winner-icon {
+  width:      190px;
+  height:     190px;
+}
+
 // ── Draw Overlay ──
 .game__draw-overlay {
   position:        fixed;
@@ -586,6 +625,15 @@
   border-radius: $radius-lg;
 
   &:hover { background: rgba(255, 46, 130, 0.12); }
+}
+
+.game[data-theme='gaming'] .game__draw-overlay {
+  background: #214558;
+}
+
+.game[data-theme='gaming'] .game__draw-title-img {
+  max-width: 480px;
+  width:     80%;
 }
 
 // ── Exit Game Overlay ──

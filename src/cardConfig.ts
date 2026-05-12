@@ -1,13 +1,16 @@
-// ─────────────────────────────────────────────
-// cardConfig.ts
-// Hier trägst du deine SVG-Assets ein.
-// Dateinamen relativ zu /public/assets/themes/
-// ─────────────────────────────────────────────
+/**
+ * @file cardConfig.ts
+ * @description SVG-Asset-Konfiguration für alle verfügbaren Spielthemen.
+ */
 
+/** Verfügbare Spielthemen. */
 export type Theme = 'code' | 'gaming';
 
-// Jeder Eintrag = ein Kartenpaar
-// Füge einfach weitere Strings hinzu (min. boardSize/2 Einträge!)
+/**
+ * Alle Kartenbilder (Vorderseite) pro Theme.
+ * Jeder Eintrag repräsentiert ein Kartenpaar.
+ * Es müssen mindestens `boardSize / 2` Einträge vorhanden sein.
+ */
 export const CARD_ASSETS: Record<Theme, string[]> = {
   code: [
     '/assets/themes/code/code_01.svg',
@@ -51,7 +54,9 @@ export const CARD_ASSETS: Record<Theme, string[]> = {
   ],
 };
 
-// Rückseiten-Icon pro Theme
+/**
+ * Kartenrückseiten-Asset pro Theme.
+ */
 export const CARD_BACK: Record<Theme, string> = {
   code:   '/assets/themes/code/card_back.svg',
   gaming: '/assets/themes/gaming/card_back.svg',
