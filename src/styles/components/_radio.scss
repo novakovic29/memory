@@ -21,6 +21,13 @@
   input[type='radio'] { display: none; }
 }
 
+.settings__selected-icon {
+  display:    none;
+  width:      60px;
+  height:     20px;
+  flex-shrink: 0;
+}
+
 .settings__radio-circle {
   width:         18px;
   height:        18px;
@@ -60,5 +67,9 @@
   .settings__radio-label {
     color:       $color-text-primary;
     font-weight: 500;
+  }
+
+  .settings__selected-icon {
+    display: block;
   }
 }
