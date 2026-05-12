@@ -178,6 +178,14 @@ export class GameController {
       this.hideExitOverlay();
       this.onExit();
     });
+
+    // DEV: E-Taste beendet Spiel sofort mit simuliertem Gewinner
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'e' && e.key !== 'E') return;
+      this.scores.blue.score   = 8;
+      this.scores.orange.score = 8;
+      this.onGameEnd();
+    }, { once: true });
   }
 
   // ── Flip logic ──────────────────────────────
@@ -244,16 +252,56 @@ export class GameController {
 
   // ── Game end ────────────────────────────────
   private onGameEnd(): void {
-    const winner =
-      this.scores.blue.score > this.scores.orange.score  ? 'Blue' :
-      this.scores.orange.score > this.scores.blue.score  ? 'Orange' :
-      'Draw';
+    const themeSuffix = this.theme === 'gaming' ? 'game' : this.theme;
+    (document.getElementById('end-icon-blue')   as HTMLImageElement).src = `/assets/player_blue_${themeSuffix}.png`;
+    (document.getElementById('end-icon-orange') as HTMLImageElement).src = `/assets/player_orange_${themeSuffix}.png`;
 
-    // Einfaches Overlay (kann später durch ein schöneres ersetzt werden)
-    const overlay = document.getElementById('game-end-overlay')!;
-    const msg     = document.getElementById('game-end-message')!;
-    msg.textContent = winner === 'Draw' ? "It's a draw! 🤝" : `${winner} wins! 🎉`;
+    document.getElementById('end-score-blue')!.textContent   = String(this.scores.blue.score);
+    document.getElementById('end-score-orange')!.textContent = String(this.scores.orange.score);
+
+    const endOverlay = document.getElementById('game-end-overlay')!;
+    endOverlay.style.display = 'flex';
+
+    setTimeout(() => {
+      endOverlay.style.display = 'none';
+      this.showWinnerScreen();
+    }, 5000);
+  }
+
+  private showWinnerScreen(): void {
+    const winner: PlayerKey | 'draw' =
+      this.scores.blue.score > this.scores.orange.score   ? 'blue'  :
+      this.scores.orange.score > this.scores.blue.score   ? 'orange' : 'draw';
+
+    if (winner === 'draw') {
+      this.showDrawScreen();
+      return;
+    }
+
+    const nameEl = document.getElementById('winner-name')!;
+    nameEl.textContent = `${winner.toUpperCase()} PLAYER`;
+    nameEl.className   = `game__winner-name game__winner-name--${winner}`;
+
+    (document.getElementById('winner-icon') as HTMLImageElement).src =
+      `/assets/themes/code_result/chess_pawn_${winner}.png`;
+
+    const overlay = document.getElementById('game-winner-overlay')!;
     overlay.style.display = 'flex';
+
+    document.getElementById('game-winner-back')?.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      document.dispatchEvent(new CustomEvent('game:exit'));
+    }, { once: true });
+  }
+
+  private showDrawScreen(): void {
+    const overlay = document.getElementById('game-draw-overlay')!;
+    overlay.style.display = 'flex';
+
+    document.getElementById('game-draw-back')?.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      document.dispatchEvent(new CustomEvent('game:exit'));
+    }, { once: true });
   }
 
   private onExit(): void {

@@ -1,6 +1,13 @@
 import './styles/style.scss';
 import { SettingsController } from './settings';
 import { GameController }     from './game';
+import { heroTemplate }       from './templates/hero.template';
+import { settingsTemplate }   from './templates/settings.template';
+import { gameTemplate }       from './templates/game.template';
+
+document.body.insertAdjacentHTML('afterbegin',
+  heroTemplate() + settingsTemplate() + gameTemplate()
+);
 
 init();
 
