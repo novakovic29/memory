@@ -161,8 +161,8 @@ export class GameController {
    */
   private renderHUD(): void {
     const suffix = this.theme === 'gaming' ? 'game' : this.theme;
-    this.iconBlueEl.src   = `/assets/player_blue_${suffix}.png`;
-    this.iconOrangeEl.src = `/assets/player_orange_${suffix}.png`;
+    this.iconBlueEl.src   = `./assets/player_blue_${suffix}.png`;
+    this.iconOrangeEl.src = `./assets/player_orange_${suffix}.png`;
 
     this.scoreBlueEl.textContent   = String(this.scores.blue.score);
     this.scoreOrangeEl.textContent = String(this.scores.orange.score);
@@ -174,7 +174,7 @@ export class GameController {
    */
   private updateCurrentPlayer(): void {
     const suffix = this.theme === 'gaming' ? 'game' : this.theme;
-    this.currentIconEl.src         = `/assets/player_${this.currentPlayer}_${suffix}.png`;
+    this.currentIconEl.src         = `./assets/player_${this.currentPlayer}_${suffix}.png`;
     this.playerLabelEl.textContent = '';
     this.playerLabelEl.style.color = '';
 
@@ -284,16 +284,16 @@ export class GameController {
    */
   private onGameEnd(): void {
     const suffix = this.theme === 'gaming' ? 'game' : this.theme;
-    (document.getElementById('end-icon-blue')   as HTMLImageElement).src = `/assets/player_blue_${suffix}.png`;
-    (document.getElementById('end-icon-orange') as HTMLImageElement).src = `/assets/player_orange_${suffix}.png`;
+    (document.getElementById('end-icon-blue')   as HTMLImageElement).src = `./assets/player_blue_${suffix}.png`;
+    (document.getElementById('end-icon-orange') as HTMLImageElement).src = `./assets/player_orange_${suffix}.png`;
 
     document.getElementById('end-score-blue')!.textContent   = String(this.scores.blue.score);
     document.getElementById('end-score-orange')!.textContent = String(this.scores.orange.score);
 
     (document.querySelector('.game__end-gameover-img') as HTMLImageElement).src =
       this.theme === 'gaming'
-        ? '/assets/themes/gaming_result/game_over_gaming.png'
-        : '/assets/themes/code_result/game_over.png';
+        ? './assets/themes/gaming_result/game_over_gaming.png'
+        : './assets/themes/code_result/game_over.png';
 
     const endOverlay = document.getElementById('game-end-overlay')!;
     endOverlay.style.display = 'flex';
@@ -324,16 +324,16 @@ export class GameController {
 
     if (this.theme === 'gaming') {
       nameEl.style.display    = 'none';
-      nameImgEl.src           = `/assets/themes/gaming_result/winner_${winner}.png`;
+      nameImgEl.src           = `./assets/themes/gaming_result/winner_${winner}.png`;
       nameImgEl.style.display = 'block';
-      iconEl.src              = '/assets/themes/gaming_result/pockal.png';
+      iconEl.src              = './assets/themes/gaming_result/pockal.png';
       backBtn.textContent     = 'Home';
     } else {
       nameImgEl.style.display = 'none';
       nameEl.style.display    = '';
       nameEl.textContent      = `${winner.toUpperCase()} PLAYER`;
       nameEl.className        = `game__winner-name game__winner-name--${winner}`;
-      iconEl.src              = `/assets/themes/code_result/chess_pawn_${winner}.png`;
+      iconEl.src              = `./assets/themes/code_result/chess_pawn_${winner}.png`;
       backBtn.textContent     = 'Back to start';
     }
 
@@ -355,12 +355,12 @@ export class GameController {
     const backBtn  = document.getElementById('game-draw-back')!;
 
     if (this.theme === 'gaming') {
-      titleImg.src           = '/assets/themes/gaming_result/its_draw_gaming.png';
+      titleImg.src           = './assets/themes/gaming_result/its_draw_gaming.png';
       scaleImg.style.display = 'none';
       backBtn.textContent    = 'Home';
     } else {
-      titleImg.src           = '/assets/themes/code_result/its_draw.png';
-      scaleImg.src           = '/assets/themes/code_result/scale_icon.png';
+      titleImg.src           = './assets/themes/code_result/its_draw.png';
+      scaleImg.src           = './assets/themes/code_result/scale_icon.png';
       scaleImg.style.display = '';
       backBtn.textContent    = 'Back to start';
     }

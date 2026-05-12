@@ -37,13 +37,13 @@ const THEME_CONFIG: Record<Theme, ThemeConfig> = {
     previewBg:  '#1e2a1e',
     cardFront:  '#26a69a',
     cardBack:   '#f5f5f0',
-    previewImg: '/assets/themes/preview_code.svg',
+    previewImg: './assets/themes/preview_code.svg',
   },
   gaming: {
     previewBg:  '#1a1a2e',
     cardFront:  '#e91e8c',
     cardBack:   '#f5f5f0',
-    previewImg: '/assets/themes/preview_gaming.svg',
+    previewImg: './assets/themes/preview_gaming.svg',
   },
 };
 

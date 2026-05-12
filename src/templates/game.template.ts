@@ -17,12 +17,12 @@ export function gameTemplate(): string {
     <header class="game__hud">
       <div class="game__hud-scores">
         <div class="game__hud-player game__hud-player--blue" id="hud-player-blue">
-          <img src="/assets/player_blue.png" alt="Blue player" class="game__hud-icon" id="hud-icon-blue">
+          <img src="./assets/player_blue.png" alt="Blue player" class="game__hud-icon" id="hud-icon-blue">
           <span class="game__hud-name">Blue</span>
           <span class="game__hud-score" id="score-blue">0</span>
         </div>
         <div class="game__hud-player game__hud-player--orange" id="hud-player-orange">
-          <img src="/assets/player_orange.png" alt="Orange player" class="game__hud-icon" id="hud-icon-orange">
+          <img src="./assets/player_orange.png" alt="Orange player" class="game__hud-icon" id="hud-icon-orange">
           <span class="game__hud-name">Orange</span>
           <span class="game__hud-score" id="score-orange">0</span>
         </div>
@@ -30,7 +30,7 @@ export function gameTemplate(): string {
 
       <div class="game__hud-current">
         Current player:
-        <img src="/assets/player_blue_code.png" alt="Current player" class="game__hud-current-icon" id="current-player-icon">
+        <img src="./assets/player_blue_code.png" alt="Current player" class="game__hud-current-icon" id="current-player-icon">
         <span class="game__hud-current-label" id="current-player-label"></span>
       </div>
 
@@ -51,7 +51,7 @@ export function gameTemplate(): string {
 
     <!-- Game End Overlay -->
     <div class="game__end-overlay" id="game-end-overlay" style="display: none;">
-      <img src="/assets/themes/code_result/game_over.png" alt="Game over" class="game__end-gameover-img">
+      <img src="./assets/themes/code_result/game_over.png" alt="Game over" class="game__end-gameover-img">
       <p class="game__end-score-title">Final score</p>
       <div class="game__end-scores">
         <div class="game__end-score-badge game__end-score-badge--blue">
@@ -83,8 +83,8 @@ export function gameTemplate(): string {
     <!-- Draw Overlay -->
     <div class="game__draw-overlay" id="game-draw-overlay" style="display: none;">
       <div class="game__draw-content">
-        <img src="/assets/themes/code_result/its_draw.png" alt="It's a draw" class="game__draw-title-img">
-        <img src="/assets/themes/code_result/scale_icon.png" alt="Scale" class="game__draw-icon">
+        <img src="./assets/themes/code_result/its_draw.png" alt="It's a draw" class="game__draw-title-img">
+        <img src="./assets/themes/code_result/scale_icon.png" alt="Scale" class="game__draw-icon">
         <button class="game__draw-btn" id="game-draw-back">Back to start</button>
       </div>
     </div>
