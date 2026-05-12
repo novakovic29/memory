@@ -1,3 +1,13 @@
+/**
+ * @file settings.template.ts
+ * @description HTML template for the settings screen.
+ */
+
+/**
+ * Returns the HTML of the settings screen as a string.
+ *
+ * @returns HTML string of the settings section.
+ */
 export function settingsTemplate(): string {
   return `
   <section class="settings" id="settings" style="display: none;">

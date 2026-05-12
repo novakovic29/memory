@@ -1,3 +1,14 @@
+/**
+ * @file game.template.ts
+ * @description HTML template for the game screen including HUD, board and all overlays.
+ */
+
+/**
+ * Returns the HTML of the game screen as a string.
+ * Includes the HUD, board, game-over, winner, draw and exit overlays.
+ *
+ * @returns HTML string of the game section.
+ */
 export function gameTemplate(): string {
   return `
   <section class="game" id="game" style="display: none;">

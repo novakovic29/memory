@@ -1,3 +1,13 @@
+/**
+ * @file hero.template.ts
+ * @description HTML template for the hero screen.
+ */
+
+/**
+ * Returns the HTML of the hero screen as a string.
+ *
+ * @returns HTML string of the hero section.
+ */
 export function heroTemplate(): string {
   return `
   <section class="hero" id="hero">

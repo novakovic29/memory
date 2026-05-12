@@ -1,15 +1,15 @@
 /**
  * @file cardConfig.ts
- * @description SVG-Asset-Konfiguration für alle verfügbaren Spielthemen.
+ * @description SVG asset configuration for all available game themes.
  */
 
-/** Verfügbare Spielthemen. */
+/** Available game themes. */
 export type Theme = 'code' | 'gaming';
 
 /**
- * Alle Kartenbilder (Vorderseite) pro Theme.
- * Jeder Eintrag repräsentiert ein Kartenpaar.
- * Es müssen mindestens `boardSize / 2` Einträge vorhanden sein.
+ * Card front-face assets grouped by theme.
+ * Each entry represents one card pair.
+ * At least `boardSize / 2` entries must be present per theme.
  */
 export const CARD_ASSETS: Record<Theme, string[]> = {
   code: [
@@ -55,7 +55,7 @@ export const CARD_ASSETS: Record<Theme, string[]> = {
 };
 
 /**
- * Kartenrückseiten-Asset pro Theme.
+ * Card back-face asset path per theme.
  */
 export const CARD_BACK: Record<Theme, string> = {
   code:   '/assets/themes/code/card_back.svg',
