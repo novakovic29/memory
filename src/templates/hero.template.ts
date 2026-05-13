@@ -16,11 +16,10 @@ export function heroTemplate(): string {
       <h1 class="hero__title">Ready to play?</h1>
 
       <button class="hero__btn" id="play-btn">
-        <img src="./assets/stadia_controller.svg" alt="controller">
-        <span>Play</span>
-        <i data-lucide="arrow-right"></i>
+        <img src="./assets/start_button.png" alt="Play" class="hero__btn-img" id="play-btn-img">
       </button>
-    </div>
+
+</div>
 
     <img src="./assets/stadia_controller_background.svg" alt="" class="hero__bg-icon" aria-hidden="true">
   </section>

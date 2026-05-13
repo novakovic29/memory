@@ -4,42 +4,6 @@
 
 @use '../abstracts' as *;
 
-// ── Hero Play Button ──
-.hero__btn {
-  @include btn-reset;
-  display:          inline-flex;
-  align-items:      center;
-  gap:              .6rem;
-  background-color: $color-accent;
-  color:            $color-text-primary;
-  font-size:        2.1rem;
-  font-weight:      700;
-  padding:          .85rem 1.6rem;
-  border-radius:    $radius-md;
-  transition:
-    transform    $transition-fast,
-    box-shadow   $transition-fast;
-
-  img {
-    width:  44px;
-    height: 32px;
-  }
-
-  svg {
-    width:        18px;
-    height:       18px;
-    stroke-width: 2.5;
-  }
-
-  &:hover {
-    transform:  translateY(-2px);
-    box-shadow: 0 8px 24px rgba($color-accent, .3);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-}
 
 // ── Settings Start Button ──
 .settings__start-btn {

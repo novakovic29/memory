@@ -26,7 +26,15 @@ function init(): void {
     (window as any).lucide.createIcons();
   }
 
-  document.getElementById('play-btn')?.addEventListener('click', showSettings);
+  const hoverPreload = new Image();
+  hoverPreload.src = './assets/start_button_hover.png';
+
+  const playBtn = document.getElementById('play-btn')!;
+  const btnImg  = document.getElementById('play-btn-img') as HTMLImageElement;
+
+  playBtn.addEventListener('mouseenter', () => { btnImg.style.opacity = '0.85'; btnImg.src = './assets/start_button_hover.png'; });
+  playBtn.addEventListener('mouseleave', () => { btnImg.style.opacity = '1';    btnImg.src = './assets/start_button.png'; });
+  playBtn.addEventListener('click', showSettings);
 
   const settingsController = new SettingsController(onSettingsStart);
 
