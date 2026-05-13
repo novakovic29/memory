@@ -89,9 +89,8 @@ export class SettingsController {
   private barSize     = document.getElementById('bar-size')!;
   private barLine1    = document.getElementById('bar-line-1')             as HTMLImageElement;
   private barLine2    = document.getElementById('bar-line-2')             as HTMLImageElement;
-  private btnDisabled = document.getElementById('btn-disabled')           as HTMLImageElement;
-  private btnPlay     = document.getElementById('btn-play')               as HTMLImageElement;
   private startBtn    = document.getElementById('start-btn')              as HTMLButtonElement;
+  private startIcon   = document.getElementById('start-btn-icon')         as HTMLImageElement;
 
   /**
    * @param onStart - Called with theme, player and size when the user starts the game.
@@ -101,10 +100,16 @@ export class SettingsController {
     this.bindRadios();
     this.bindHover();
     this.startBtn?.addEventListener('click', () => this.handleStart());
-    this.btnDisabled?.addEventListener('click', () => this.handleStart());
-    this.btnPlay?.addEventListener('click', () => this.handleStart());
-    this.btnPlay?.addEventListener('mouseenter', () => { this.btnPlay.src = './assets/btn_play_hover.png'; });
-    this.btnPlay?.addEventListener('mouseleave', () => { this.btnPlay.src = './assets/btn_play.png'; });
+    this.startBtn?.addEventListener('mouseenter', () => {
+      if (this.startBtn.classList.contains('is-ready')) {
+        this.startIcon.src = './assets/btn_play_hover.png';
+      }
+    });
+    this.startBtn?.addEventListener('mouseleave', () => {
+      if (this.startBtn.classList.contains('is-ready')) {
+        this.startIcon.src = './assets/btn_play.png';
+      }
+    });
     this.render();
   }
 
@@ -183,8 +188,7 @@ export class SettingsController {
     const isReady = !!this.theme && !!this.player && !!this.size;
     this.startBtn.disabled = !isReady;
     this.startBtn.classList.toggle('is-ready', isReady);
-    this.btnDisabled.style.display = isReady ? 'none'         : 'inline-block';
-    this.btnPlay.style.display     = isReady ? 'inline-block' : 'none';
+    this.startIcon.src = isReady ? './assets/btn_play.png' : './assets/btn_disabled.png';
   }
 
   /** Fires the start callback if all settings are selected. */

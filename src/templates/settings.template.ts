@@ -109,14 +109,10 @@ export function settingsTemplate(): string {
           <span class="settings__bar-item" id="bar-player">Player</span>
           <img src="./assets/line.png" alt="" class="settings__bar-line" id="bar-line-2">
           <span class="settings__bar-item" id="bar-size">Board size</span>
-          <button class="settings__start-btn" id="start-btn" type="button" disabled style="display:none;">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <polygon points="5,3 19,12 5,21"/>
-            </svg>
-            Start
+          <button class="settings__start-btn" id="start-btn" type="button">
+            <img src="./assets/btn_disabled.png" alt="" class="settings__start-icon" id="start-btn-icon" aria-hidden="true">
+            <span class="settings__start-label">Start</span>
           </button>
-          <img src="./assets/btn_disabled.png" alt="Disabled play button" class="settings__start-img settings__start-img--disabled" id="btn-disabled">
-          <img src="./assets/btn_play.png" alt="Play button" class="settings__start-img settings__start-img--play" id="btn-play" style="display:none;">
         </div>
 
       </div>

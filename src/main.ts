@@ -26,14 +26,23 @@ function init(): void {
     (window as any).lucide.createIcons();
   }
 
-  const hoverPreload = new Image();
-  hoverPreload.src = './assets/start_button_hover.png';
+  const preloadController = new Image();
+  preloadController.src = './assets/stadia_controller_hover.png';
+  const preloadArrow = new Image();
+  preloadArrow.src = './assets/arrow_hover.png';
 
-  const playBtn = document.getElementById('play-btn')!;
-  const btnImg  = document.getElementById('play-btn-img') as HTMLImageElement;
+  const playBtn        = document.getElementById('play-btn')!;
+  const controllerImg  = document.getElementById('play-btn-controller') as HTMLImageElement;
+  const arrowImg       = document.getElementById('play-btn-arrow')      as HTMLImageElement;
 
-  playBtn.addEventListener('mouseenter', () => { btnImg.style.opacity = '0.85'; btnImg.src = './assets/start_button_hover.png'; });
-  playBtn.addEventListener('mouseleave', () => { btnImg.style.opacity = '1';    btnImg.src = './assets/start_button.png'; });
+  playBtn.addEventListener('mouseenter', () => {
+    controllerImg.src = './assets/stadia_controller_hover.png';
+    arrowImg.src      = './assets/arrow_hover.png';
+  });
+  playBtn.addEventListener('mouseleave', () => {
+    controllerImg.src = './assets/stadia_controller.png';
+    arrowImg.src      = './assets/arrow.png';
+  });
   playBtn.addEventListener('click', showSettings);
 
   const settingsController = new SettingsController(onSettingsStart);

@@ -16,7 +16,9 @@ export function heroTemplate(): string {
       <h1 class="hero__title">Ready to play?</h1>
 
       <button class="hero__btn" id="play-btn">
-        <img src="./assets/start_button.png" alt="Play" class="hero__btn-img" id="play-btn-img">
+        <img src="./assets/stadia_controller.png" alt="" class="hero__btn-controller" id="play-btn-controller" aria-hidden="true">
+        <span class="hero__btn-label">Play</span>
+        <img src="./assets/arrow.png" alt="" class="hero__btn-arrow" id="play-btn-arrow" aria-hidden="true">
       </button>
 
 </div>
