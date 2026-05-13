@@ -94,7 +94,6 @@ export function settingsTemplate(): string {
 
       <!-- RIGHT: Preview -->
       <div class="settings__preview-wrap">
-
         <img
           src="./assets/themes/preview_code.svg"
           alt="Theme preview"

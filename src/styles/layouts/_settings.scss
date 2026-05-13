@@ -9,6 +9,8 @@
   min-height: 100vh;
   padding:    $spacing-3xl $spacing-xl $spacing-lg $spacing-4xl;
   color:      $color-text-primary;
+  max-width:  1100px;
+  margin:     0 auto;
 }
 
 // ── Header ──
@@ -77,10 +79,8 @@
   border:        1.5px solid $color-border;
 
   height:        81px;
-  max-width:     600px;
   width:         100%;
-  margin-left:   auto;
-  margin-right:  auto;
+  max-width:     600px;
 }
 
 .settings__bar-item {

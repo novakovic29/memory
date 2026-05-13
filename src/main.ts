@@ -24,7 +24,7 @@ function injectTemplates(): void {
 
 /** Preloads hover assets and binds events on the hero play button. */
 function bindHeroButton(): void {
-  preloadImages(['./assets/stadia_controller_hover.png', './assets/arrow_hover.png']);
+  preloadImages(['./assets/stadia_controller_hover.png', './assets/arrow_hover.svg']);
 
   const playBtn       = document.getElementById('play-btn')!;
   const controllerImg = document.getElementById('play-btn-controller') as HTMLImageElement;
@@ -32,11 +32,11 @@ function bindHeroButton(): void {
 
   playBtn.addEventListener('mouseenter', () => {
     controllerImg.src = './assets/stadia_controller_hover.png';
-    arrowImg.src      = './assets/arrow_hover.png';
+    arrowImg.src      = './assets/arrow_hover.svg';
   });
   playBtn.addEventListener('mouseleave', () => {
     controllerImg.src = './assets/stadia_controller.png';
-    arrowImg.src      = './assets/arrow.png';
+    arrowImg.src      = './assets/arrow.svg';
   });
   playBtn.addEventListener('click', showSettings);
 }
