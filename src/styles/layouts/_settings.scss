@@ -119,13 +119,19 @@
 }
 
 .settings__start-img {
-  display: inline-block;
-  height: 48px;
-  width: auto;
-  margin-left: $spacing-sm;
+  display:    inline-block;
+  height:     48px;
+  width:      auto;
+  margin-left:  $spacing-sm;
   margin-right: $spacing-sm;
-  cursor: pointer;
+  cursor:     pointer;
   user-select: none;
+  transition:       transform 0.25s ease;
+  transform-origin: right center;
+
+  &:hover {
+    transform: scale(1.04);
+  }
 }
 
 .settings__start-img--disabled {

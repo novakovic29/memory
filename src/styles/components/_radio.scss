@@ -17,8 +17,18 @@
   gap:         10px;
   cursor:      pointer;
   user-select: none;
+  align-self:  flex-start;
 
   input[type='radio'] { display: none; }
+
+  &:hover .settings__radio-label {
+    color:       $color-text-primary;
+    font-weight: 700;
+  }
+
+  &:hover .settings__selected-icon {
+    display: block;
+  }
 }
 
 .settings__selected-icon {

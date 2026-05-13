@@ -12,7 +12,7 @@ export function settingsTemplate(): string {
   return `
   <section class="settings" id="settings" style="display: none;">
     <div class="settings__header">
-      <h1 class="settings__title">Settings</h1>
+      <h2 class="settings__title">Settings</h2>
       <div class="settings__underline"></div>
     </div>
 
@@ -22,10 +22,10 @@ export function settingsTemplate(): string {
       <div class="settings__options">
 
         <section class="settings__section">
-          <h2 class="settings__section-title">
+          <h3 class="settings__section-title">
             <img src="./assets/palette.png" alt="" class="settings__section-icon" aria-hidden="true">
             Game themes
-          </h2>
+          </h3>
           <div class="settings__radio-group">
             <label class="settings__radio-option">
               <input type="radio" name="theme" value="code" />
@@ -43,10 +43,10 @@ export function settingsTemplate(): string {
         </section>
 
         <section class="settings__section">
-          <h2 class="settings__section-title">
+          <h3 class="settings__section-title">
             <img src="./assets/chess_pawn.png" alt="" class="settings__section-icon" aria-hidden="true">
             Choose player
-          </h2>
+          </h3>
           <div class="settings__radio-group">
             <label class="settings__radio-option">
               <input type="radio" name="player" value="blue" />
@@ -64,10 +64,10 @@ export function settingsTemplate(): string {
         </section>
 
         <section class="settings__section">
-          <h2 class="settings__section-title">
+          <h3 class="settings__section-title">
             <img src="./assets/style.png" alt="" class="settings__section-icon" aria-hidden="true">
             Board size
-          </h2>
+          </h3>
           <div class="settings__radio-group">
             <label class="settings__radio-option">
               <input type="radio" name="size" value="16" />
@@ -105,9 +105,9 @@ export function settingsTemplate(): string {
         <!-- Bottom bar -->
         <div class="settings__bottom-bar">
           <span class="settings__bar-item" id="bar-theme">Game theme</span>
-          <img src="./assets/line.png" alt="" class="settings__bar-line" id="bar-line-1" style="display: none;">
+          <img src="./assets/line.png" alt="" class="settings__bar-line" id="bar-line-1">
           <span class="settings__bar-item" id="bar-player">Player</span>
-          <img src="./assets/line.png" alt="" class="settings__bar-line" id="bar-line-2" style="display: none;">
+          <img src="./assets/line.png" alt="" class="settings__bar-line" id="bar-line-2">
           <span class="settings__bar-item" id="bar-size">Board size</span>
           <button class="settings__start-btn" id="start-btn" type="button" disabled style="display:none;">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

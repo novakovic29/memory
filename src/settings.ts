@@ -103,6 +103,8 @@ export class SettingsController {
     this.startBtn?.addEventListener('click', () => this.handleStart());
     this.btnDisabled?.addEventListener('click', () => this.handleStart());
     this.btnPlay?.addEventListener('click', () => this.handleStart());
+    this.btnPlay?.addEventListener('mouseenter', () => { this.btnPlay.src = './assets/btn_play_hover.png'; });
+    this.btnPlay?.addEventListener('mouseleave', () => { this.btnPlay.src = './assets/btn_play.png'; });
     this.render();
   }
 
@@ -170,8 +172,8 @@ export class SettingsController {
     this.previewWrap?.classList.toggle('is-code-theme',   this.theme === 'code');
     this.previewWrap?.classList.toggle('is-gaming-theme', this.theme === 'gaming');
 
-    this.barLine1.style.display = this.theme  ? 'inline' : 'none';
-    this.barLine2.style.display = this.player ? 'inline' : 'none';
+    this.barLine1.style.display = 'inline';
+    this.barLine2.style.display = 'inline';
 
     this.barTheme.parentElement!.className = 'settings__bottom-bar';
   }
