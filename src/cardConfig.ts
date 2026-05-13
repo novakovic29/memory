@@ -3,8 +3,7 @@
  * @description SVG asset configuration for all available game themes.
  */
 
-/** Available game themes. */
-export type Theme = 'code' | 'gaming';
+import type { Theme } from './settings';
 
 /**
  * Card front-face assets grouped by theme.

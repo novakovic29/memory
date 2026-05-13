@@ -87,8 +87,6 @@ export class SettingsController {
   private barTheme    = document.getElementById('bar-theme')!;
   private barPlayer   = document.getElementById('bar-player')!;
   private barSize     = document.getElementById('bar-size')!;
-  private barLine1    = document.getElementById('bar-line-1')             as HTMLImageElement;
-  private barLine2    = document.getElementById('bar-line-2')             as HTMLImageElement;
   private startBtn    = document.getElementById('start-btn')              as HTMLButtonElement;
   private startIcon   = document.getElementById('start-btn-icon')         as HTMLImageElement;
 
@@ -167,20 +165,30 @@ export class SettingsController {
 
   /** Updates the bottom bar to reflect the current selections. */
   private renderBottomBar(): void {
+    this.updateBarLabels();
+    this.updateBarActiveStates();
+    this.updateThemeClasses();
+  }
+
+  /** Updates the text labels of the bottom bar items. */
+  private updateBarLabels(): void {
     this.barTheme.textContent  = this.theme  ? THEME_LABELS[this.theme]   : 'Game theme';
     this.barPlayer.textContent = this.player ? PLAYER_LABELS[this.player] : 'Player';
     this.barSize.textContent   = this.size   ? `${this.size} cards`       : 'Board size';
+    this.barTheme.parentElement!.className = 'settings__bottom-bar';
+  }
 
+  /** Toggles the is-active class on each bottom bar item. */
+  private updateBarActiveStates(): void {
     this.barTheme.classList.toggle('is-active',  !!this.theme);
     this.barPlayer.classList.toggle('is-active', !!this.player);
     this.barSize.classList.toggle('is-active',   !!this.size);
+  }
+
+  /** Toggles theme modifier classes on the preview wrapper. */
+  private updateThemeClasses(): void {
     this.previewWrap?.classList.toggle('is-code-theme',   this.theme === 'code');
     this.previewWrap?.classList.toggle('is-gaming-theme', this.theme === 'gaming');
-
-    this.barLine1.style.display = 'inline';
-    this.barLine2.style.display = 'inline';
-
-    this.barTheme.parentElement!.className = 'settings__bottom-bar';
   }
 
   /** Enables or disables the start button based on selection completeness. */

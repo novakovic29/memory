@@ -11,29 +11,24 @@ import { heroTemplate }       from './templates/hero.template';
 import { settingsTemplate }   from './templates/settings.template';
 import { gameTemplate }       from './templates/game.template';
 
-document.body.insertAdjacentHTML('afterbegin',
-  heroTemplate() + settingsTemplate() + gameTemplate()
-);
+injectTemplates();
+bindHeroButton();
+bindNavigation(new SettingsController(onSettingsStart));
 
-init();
+/** Injects all screen templates into the DOM. */
+function injectTemplates(): void {
+  document.body.insertAdjacentHTML('afterbegin',
+    heroTemplate() + settingsTemplate() + gameTemplate()
+  );
+}
 
-/**
- * Bootstraps the application by registering event listeners
- * and creating the {@link SettingsController}.
- */
-function init(): void {
-  if (typeof (window as any).lucide !== 'undefined') {
-    (window as any).lucide.createIcons();
-  }
+/** Preloads hover assets and binds events on the hero play button. */
+function bindHeroButton(): void {
+  preloadImages(['./assets/stadia_controller_hover.png', './assets/arrow_hover.png']);
 
-  const preloadController = new Image();
-  preloadController.src = './assets/stadia_controller_hover.png';
-  const preloadArrow = new Image();
-  preloadArrow.src = './assets/arrow_hover.png';
-
-  const playBtn        = document.getElementById('play-btn')!;
-  const controllerImg  = document.getElementById('play-btn-controller') as HTMLImageElement;
-  const arrowImg       = document.getElementById('play-btn-arrow')      as HTMLImageElement;
+  const playBtn       = document.getElementById('play-btn')!;
+  const controllerImg = document.getElementById('play-btn-controller') as HTMLImageElement;
+  const arrowImg      = document.getElementById('play-btn-arrow')      as HTMLImageElement;
 
   playBtn.addEventListener('mouseenter', () => {
     controllerImg.src = './assets/stadia_controller_hover.png';
@@ -44,9 +39,14 @@ function init(): void {
     arrowImg.src      = './assets/arrow.png';
   });
   playBtn.addEventListener('click', showSettings);
+}
 
-  const settingsController = new SettingsController(onSettingsStart);
-
+/**
+ * Binds all navigation event listeners.
+ *
+ * @param settingsController - The active {@link SettingsController} instance.
+ */
+function bindNavigation(settingsController: SettingsController): void {
   document.addEventListener('game:exit', () => {
     settingsController.reset();
     showSettings();
@@ -77,6 +77,15 @@ function onSettingsStart(theme: string, player: string, size: string): void {
     player as 'blue' | 'orange',
     size   as '16' | '24' | '36',
   );
+}
+
+/**
+ * Preloads an array of image URLs into the browser cache.
+ *
+ * @param urls - Asset paths to preload.
+ */
+function preloadImages(urls: string[]): void {
+  urls.forEach((src) => { new Image().src = src; });
 }
 
 /** Shows the hero screen and hides all other screens. */

@@ -132,8 +132,6 @@ export class GameController {
   private renderBoard(): void {
     this.boardEl.innerHTML = '';
 
-    const cols = this.size === 16 ? 4 : 6;
-    this.boardEl.style.gridTemplateColumns         = `repeat(${cols}, 120px)`;
     this.boardEl.dataset.theme                     = this.theme;
     this.boardEl.dataset.size                      = String(this.size);
     document.getElementById('game')!.dataset.theme = this.theme;
