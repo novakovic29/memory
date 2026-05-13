@@ -75,7 +75,7 @@
   margin-top:    $spacing-sm;
   background:    $color-bg-light;
   border:        1.5px solid $color-border;
-  overflow:      hidden;
+
   height:        81px;
   max-width:     540px;
   width:         100%;
@@ -86,7 +86,7 @@
 .settings__bar-item {
   flex:        1;
   padding:     12px $spacing-md;
-  font-size:   .82rem;
+  font-size:   1rem;
   color:       $color-text-faint;
   transition:  color $transition-normal;
   white-space: nowrap;

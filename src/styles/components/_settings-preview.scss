@@ -13,7 +13,7 @@
   &__preview-box {
     background: $color-dark-bg;
     border-radius: $radius-xl;
-    overflow: hidden;
+
     aspect-ratio: 4 / 3;
     @include flex-column;
   }
