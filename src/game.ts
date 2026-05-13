@@ -5,6 +5,7 @@
 
 import type { Theme, Player, Size } from './settings';
 import { CARD_ASSETS, CARD_BACK }   from './cardConfig';
+import { cardTemplate }             from './templates/card.template';
 
 /**
  * Represents a single memory card on the board.
@@ -140,16 +141,7 @@ export class GameController {
       const el = document.createElement('div');
       el.className  = 'memory-card';
       el.dataset.id = String(card.id);
-      el.innerHTML  = `
-        <div class="memory-card__inner">
-          <div class="memory-card__front">
-            <img src="${card.src}" alt="card" draggable="false" />
-          </div>
-          <div class="memory-card__back">
-            <img src="${CARD_BACK[this.theme]}" alt="back" draggable="false" />
-          </div>
-        </div>
-      `;
+      el.innerHTML  = cardTemplate(card.src, CARD_BACK[this.theme]);
       this.boardEl.appendChild(el);
     });
   }
