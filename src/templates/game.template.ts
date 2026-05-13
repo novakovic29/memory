@@ -17,12 +17,12 @@ export function gameTemplate(): string {
     <header class="game__hud">
       <div class="game__hud-scores">
         <div class="game__hud-player game__hud-player--blue" id="hud-player-blue">
-          <img src="./assets/player_blue.png" alt="Blue player" class="game__hud-icon" id="hud-icon-blue">
+          <img src="./assets/player_blue_code.png" alt="Blue player" class="game__hud-icon" id="hud-icon-blue">
           <span class="game__hud-name">Blue</span>
           <span class="game__hud-score" id="score-blue">0</span>
         </div>
         <div class="game__hud-player game__hud-player--orange" id="hud-player-orange">
-          <img src="./assets/player_orange.png" alt="Orange player" class="game__hud-icon" id="hud-icon-orange">
+          <img src="./assets/player_orange_code.png" alt="Orange player" class="game__hud-icon" id="hud-icon-orange">
           <span class="game__hud-name">Orange</span>
           <span class="game__hud-score" id="score-orange">0</span>
         </div>
